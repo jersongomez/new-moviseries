@@ -5,7 +5,7 @@
 # Project name:                                                          #
 # Author:                                                                #
 # Script type:           Database drop script                            #
-# Created on:            2017-04-30 11:00                                #
+# Created on:            2017-05-02 11:50                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -40,6 +40,46 @@ ALTER TABLE `series_score` DROP FOREIGN KEY `series_series_score`;
 ALTER TABLE `categories_series` DROP FOREIGN KEY `categories_categories_series`;
 
 ALTER TABLE `categories_series` DROP FOREIGN KEY `series_categories_series`;
+
+ALTER TABLE `mega_movies` DROP FOREIGN KEY `movies_mega_movies`;
+
+ALTER TABLE `mega_seasons` DROP FOREIGN KEY `seasons_mega_seasons`;
+
+# ---------------------------------------------------------------------- #
+# Drop table "mega_seasons"                                              #
+# ---------------------------------------------------------------------- #
+
+# Remove autoinc for PK drop #
+
+ALTER TABLE `mega_seasons` MODIFY `mega_id` INTEGER NOT NULL;
+
+# Drop constraints #
+
+ALTER TABLE `mega_seasons` ALTER COLUMN `language_name` DROP DEFAULT;
+
+ALTER TABLE `mega_seasons` DROP PRIMARY KEY;
+
+# Drop table #
+
+DROP TABLE `mega_seasons`;
+
+# ---------------------------------------------------------------------- #
+# Drop table "mega_movies"                                               #
+# ---------------------------------------------------------------------- #
+
+# Remove autoinc for PK drop #
+
+ALTER TABLE `mega_movies` MODIFY `mega_id` INTEGER NOT NULL;
+
+# Drop constraints #
+
+ALTER TABLE `mega_movies` ALTER COLUMN `language_name` DROP DEFAULT;
+
+ALTER TABLE `mega_movies` DROP PRIMARY KEY;
+
+# Drop table #
+
+DROP TABLE `mega_movies`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "categories_series"                                         #

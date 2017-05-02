@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['logout'] = 'users/logout';
 $route['peliculas'] = 'peliculas';
+$route['busqueda'] = 'home/busqueda';
 $route['android-app'] = 'home/android';
 $route['premium'] = 'home/premium';
 $route['premium-paypal'] = 'paypal';

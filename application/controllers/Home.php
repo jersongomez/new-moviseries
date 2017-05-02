@@ -191,4 +191,35 @@ class Home extends CI_Controller
     {
         $this->load->view('premium');
     }
+
+
+    public function busqueda()
+    {
+        $q = $_GET['query'];
+
+
+        $data = array();
+
+        if (!empty($q)) {
+            $sql = "select * from movies WHERE name LIKE '%" . $q . "%' ";
+            $query = $this->db->query($sql);
+            $movies = $query->result();
+            foreach ($movies as $movie) {
+                $data[] = ['type' => 'movie', 'name' => $movie->name, 'id' => $movie->movie_id];
+            }
+
+
+            $sql = "select * from series WHERE serie_name LIKE '%" . $q . "%' ";
+            $query = $this->db->query($sql);
+            $series = $query->result();
+            foreach ($series as $serie) {
+                $data[] = ['type' => 'serie', 'name' => $serie->serie_name, 'id' => $serie->serie_id];
+            }
+
+            $this->load->view('busqueda', ['movies' => $movies, 'series' => $series]);
+
+        } else
+            echo "el parametro de busqueda no es correcto";
+
+    }
 }

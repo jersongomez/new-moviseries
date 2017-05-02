@@ -163,8 +163,8 @@ $_SESSION['token'] = $token;
             <ul class="hidden-md-down" style="float: left;">
                 <li><a target="_blank" href="https://www.facebook.com/Moviseries-1899211867018896/"><i
                             class="icon-facebook"></i></a></li>
-                <li><a target="_blank" href="#"><i class="icon-google"></i></a></li>
-                <li><a target="_blank" href="#"><i class="icon-youtube"></i></a></li>
+                <li><a target="_blank" href="https://plus.google.com/113692407905589602086"><i class="icon-google"></i></a></li>
+                <li><a target="_blank" href="https://www.youtube.com/channel/UCSs7eO5SAkvoofRNMvFdETA"><i class="icon-youtube"></i></a></li>
             </ul>
 
             <ul style="float: right;">
@@ -426,15 +426,17 @@ $_SESSION['token'] = $token;
         <div class="p-5">
             <br><br>
 
-            <div class="row pl-3">
-                <div class="col-10 p-0">
-                    <input id="input-search" type="text" class="form-control"
-                           placeholder="buscar pelicula o serie ...">
+            <form action="<?php echo base_url('busqueda') ?>" method="get">
+                <div class="row pl-3">
+                    <div class="col-10 p-0">
+                        <input id="input-search" type="text" name="query" class="form-control"
+                               placeholder="buscar pelicula o serie ...">
+                    </div>
+                    <div class="col-2 p-0 mr-0">
+                        <button type="submit" class="btn btn-primary"><i class="icon-search-1"></i></button>
+                    </div>
                 </div>
-                <div class="col-2 p-0 mr-0">
-                    <button class="btn btn-primary"><i class="icon-search-1"></i></button>
-                </div>
-            </div>
+            </form>
 
             <div id="sugerencias">
             </div>
@@ -469,7 +471,7 @@ $_SESSION['token'] = $token;
                 <a style="font-size: 20px" target="_blank" class="btn btn-primary btn-circle btn-xl"
                    href="https://www.facebook.com/Moviseries-1899211867018896/"><i class="icon-facebook"></i></a>
                 <a style="font-size: 20px" target="_blank" class="btn btn-danger btn-circle btn-xl"
-                   href="https://plus.google.com/109422618267884023911"><i class="icon-google"></i></a>
+                   href="https://plus.google.com/113692407905589602086"><i class="icon-google"></i></a>
 
 
                 <p>Peliculas y series en HD sin publicidad</p>
