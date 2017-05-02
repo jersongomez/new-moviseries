@@ -1,0 +1,38 @@
+[
+  {
+    "temporada": {
+      "season_id": "1",
+      "number": "1",
+      "cover": "\/covers\/temporada-50c55aa1bd3d0cb03115686246ff74fe.png",
+      "trailer": "KhQHV6qwWqU",
+      "serie_id": "3",
+      "updated_at": "2017-04-28 01:16:58",
+      "key_words": "el mundo de riley"
+    },
+    "capitulos": []
+  },
+  {
+    "temporada": {
+      "season_id": "2",
+      "number": "2",
+      "cover": "\/covers\/temporada-e7d1c8bb2d15ecb53018475ae8644752.png",
+      "trailer": "KhQHV6qwWqU",
+      "serie_id": "3",
+      "updated_at": "2017-04-28 01:19:12",
+      "key_words": "el mundo de riley 2"
+    },
+    "capitulos": []
+  },
+  {
+    "temporada": {
+      "season_id": "3",
+      "number": "3",
+      "cover": "\/covers\/temporada-699d4993ec1bc5574e674de2f47b7057.png",
+      "trailer": "KhQHV6qwWqU",
+      "serie_id": "3",
+      "updated_at": "2017-04-28 01:22:04",
+      "key_words": "el mundo de riley 3"
+    },
+    "capitulos": []
+  }
+]

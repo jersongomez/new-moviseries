@@ -1,0 +1,28 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.slider {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.slick-slide:first-child {
+    margin-left: 1px;
+    margin-right: 3px;
+}
+
+.slick-slide:last-child {
+    margin-left: 3px;
+    margin-right: 1px;
+}
+
+.slick-slide {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
