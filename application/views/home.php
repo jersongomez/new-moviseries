@@ -18,7 +18,7 @@
 
 
                             <div
-                                style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 95%;">
                                 <b style="color: white; font-size: 15px; "><?php echo $movie['movie']->name; ?></b>
                             </div>
 
@@ -108,7 +108,7 @@
                                          style="margin-top: 20px; margin-bottom: auto;">
 
                                         <div
-                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                             <b style="color: white; font-size: 15px; "><?php echo $movie->name; ?></b>
                                         </div>
 
@@ -194,7 +194,7 @@
                                          style="margin-top: 20px; margin-bottom: auto;">
 
                                         <div
-                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                             <b style="color: white; font-size: 15px; "><?php echo $serie->serie_name; ?></b>
                                         </div>
 
@@ -281,7 +281,7 @@
 
 
                                         <div
-                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                             <b style="color: white; font-size: 15px; "><?php echo $serie->serie_name; ?></b>
                                         </div>
 
@@ -334,7 +334,7 @@
                                          style="margin-top: 30px; margin-bottom: auto;">
 
                                         <div
-                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                             <b style="color: white; font-size: 15px; "><?php echo $season->serie_name; ?></b>
                                         </div>
 
@@ -352,7 +352,7 @@
 
 
                                         <div
-                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                             <b style="color: white; font-size: 15px; ">Temporada <?php echo $season->number; ?></b>
                                         </div>
 

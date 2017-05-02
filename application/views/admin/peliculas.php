@@ -14,7 +14,6 @@ $token = password_hash("token", PASSWORD_DEFAULT);
     <table id="data-table" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>Portada</th>
             <th>ID</th>
             <th>Nombre</th>
             <th>Año</th>
@@ -25,7 +24,6 @@ $token = password_hash("token", PASSWORD_DEFAULT);
 
         <tfoot>
         <tr>
-            <th></th>
             <th><input style="max-width: 60px;" type="text"></th>
             <th><input type="text"></th>
             <th><input style="max-width: 70px;" type="text" type="text"></th>
@@ -107,11 +105,6 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                 }
             });
         });
-
-
-
-
-
 
 
     });

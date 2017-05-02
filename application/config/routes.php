@@ -74,6 +74,8 @@ $route['series/([0-9]+)'] = 'home/serie/$1';
 $route['peliculas/([0-9]+)/([0-9]+)'] = 'home/movie_url/$1/$2';
 $route['recuperacion/([0-9]+)/(.+)'] = 'users/recuperacion/$1/$2';
 
+$route['test_streammoe/(.+)'] = 'home/test_stream_moe__link/$1';
+
 $route['admin/seed'] = 'admin/app/seed';
 $route['admin/seed_series'] = 'admin/app/seed_series';
 $route['admin/seed_users'] = 'admin/app/seed_users';

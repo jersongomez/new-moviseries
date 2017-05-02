@@ -55,7 +55,7 @@ class Peliculas extends CI_Controller
 
                 $url = base_url('admin/peliculas/enlaces/' . $movie->movie_id);
                 $url_mega = base_url('admin/peliculas/mega/' . $movie->movie_id);
-                $json = array('<img src="' . $movie->cover . '" width="60">',
+                $json = array(
                     $movie->movie_id, $movie->name,
                     $movie->year,
                     $str,

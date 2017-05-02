@@ -2,7 +2,7 @@
 header('Content-Type: text/html; charset=utf-8');
 $host = $_SERVER['HTTP_HOST'];
 setlocale(LC_TIME, "es_ES.utf8");
-date_default_timezone_set('Europe/Madrid');
+date_default_timezone_set('America/Guayaquil');
 
 /*
 Directory Listing Script - Version 2

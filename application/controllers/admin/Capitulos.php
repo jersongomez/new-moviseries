@@ -45,6 +45,7 @@ class Capitulos extends CI_Controller
         if ($url_id != -1) {
             $res = $this->Url_model->insert_capitulo($season_id, $url_id, $episodio, $episodio_nombre);
             if ($res) {
+                $this->Temporada_model->update_at($season_id, ['updated_at' => date("Y-m-d H:i:s")]);
                 echo "exito";
             }
         } else {

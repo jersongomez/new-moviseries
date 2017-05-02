@@ -39,7 +39,7 @@ width: 100%;"
 
 
                                     <div
-                                        style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                        style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 90%;">
                                         <b style="color: white; font-size: 15px; "><?php echo $serie->serie_name; ?></b>
                                     </div>
 

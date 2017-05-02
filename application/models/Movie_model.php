@@ -164,5 +164,11 @@ class Movie_model extends CI_Model
         return $this->db->update('movies', $data, array('movie_id' => $id));
     }
 
+    public function update_at($id, $data)
+    {
+
+        return $this->db->update('movies', $data, array('movie_id' => $id));
+    }
+
 
 }

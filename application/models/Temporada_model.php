@@ -65,4 +65,10 @@ class Temporada_model extends CI_Model
     }
 
 
+    public function update_at($id, $data)
+    {
+
+        return $this->db->update('seasons', $data, array('serie_id' => $id));
+    }
+
 }

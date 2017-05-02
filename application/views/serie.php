@@ -9,11 +9,11 @@
 <?php startblock('main-content') ?>
 
 <div class="container-fluid">
-
+    <h2 class="text-center"
+        style="background-color: #E91E63; color: #fff; padding: 5px; margin-bottom: 0; "><?php echo $serie->serie_name ?><br>(<?php echo $serie->year ?>)</h2>
     <div class="row p-2">
         <div class="col-md-4">
-            <h2 class="text-center"
-                style="background-color: #E91E63; color: #fff; padding: 5px; margin-bottom: 0; "><?php echo $serie->serie_name ?><br><?php echo $serie->year ?></h2>
+
 
             <img width="100%" src="<?php echo $serie->cover ?>" alt=" <?php echo $serie->serie_name ?>">
             <br>
@@ -87,7 +87,7 @@
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                         <thead>
                         <tr class="text-center">
-                            <th class="text-center" style="color: white;">#</th>
+                            <th class="text-center" style="color: white;">Capitulo #</th>
                             <th class="text-center" style="color: white;">Título</th>
                             <th class="text-center" style="color: white;">Audio</th>
                             <th class="text-center" style="color: white;">Calidad</th>
@@ -120,11 +120,11 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                                             DESCARGAR
                                         </a>
                                     <?php } else if ($cap->server == 'stream.moe') { ?>
-                                        <button class="btn btn-sm btn-info active w-100"
-                                                onclick="descargar('<?php echo $cap->file_id ?>')"><i
-                                                class="icon-download"></i>
-                                            DESCARGA
-                                        </button>
+                                        <a target="_blank" class="btn btn-sm btn-info active w-100"
+                                           href="https://stream.moe/<?php echo $cap->file_id ?>"
+                                        ><i class="icon-download"></i>
+                                            DESCARGAR
+                                        </a>
                                     <?php } else if ($cap->server == 'google drive') { ?>
                                         <a target="_blank" class="btn-sm  btn btn-info active w-100"
                                            href="https://drive.google.com/file/d/<?php echo $cap->file_id ?>/view"
@@ -198,7 +198,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
 </div>
 
 
-<div class="container-fluid" id="disqus_thread"></div>
+<div class="container-fluid p-4" id="disqus_thread"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-no-login" tabindex="-1" role="dialog"

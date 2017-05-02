@@ -112,6 +112,7 @@ class Urls extends CI_Controller
         $url_id = $this->Url_model->insert($data);
         if ($url_id != -1) {
             $res = $this->Url_model->insert_movie_url($movie_id, $url_id);
+            $this->Movie_model->update_at($movie_id, ['updated_at' => date("Y-m-d H:i:s")]);
             if ($res) {
                 echo "exito";
             }
