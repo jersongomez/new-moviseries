@@ -74,10 +74,12 @@
             <a style="color: white;" class="nav-link   active" data-toggle="tab" href="#tab-home" role="tab">Top
                 Peliculas</a>
         </li>
+
         <li class="nav-item">
             <a style="color: white;" class="nav-link" data-toggle="tab" href="#tab-series" role="tab">Top
                 Series</a>
         </li>
+
         <li class="nav-item">
             <a style="color: white;" class="nav-link" data-toggle="tab" href="#last-series" role="tab">Ultimas
                 Series</a>
@@ -177,7 +179,7 @@
 
             </section>
         </div>
-        <div class="tab-pane active" id="tab-series" role="tabpanel">
+        <div class="tab-pane" id="tab-series" role="tabpanel">
             <section class="regular" style="margin-top: 6px;">
 
                 <div class="row">
