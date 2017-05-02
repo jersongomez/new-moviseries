@@ -12,14 +12,7 @@ class Paypal extends CI_Controller
         parent::__construct();
         $this->load->model('User_model');
 
-        // After Step 1
-        $this->apiContext = new \PayPal\Rest\ApiContext(
-            new \PayPal\Auth\OAuthTokenCredential(
-                'AYJaSTZxNbHDGjWTVzrq16qzWI1AP-xSudr9nH8LKJk5QP0QMJnKigZaXUlEMH8wLNFSC9gnPjrlecE9',     // ClientID
-                'EKQ-rttQhApD5Ib-Lm6ayk5lJtmaq7iMgSXooqlC-k33exQXjvdtwFyzIhE43gUXixtHGtGRjnLrYsOl'      // ClientSecret
-            )
-        );
-    }
+           }
 
 
     public function index()
