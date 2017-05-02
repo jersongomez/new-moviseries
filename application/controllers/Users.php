@@ -252,5 +252,12 @@ class Users extends CI_Controller
         }
     }
 
+    public function mi_cuenta(){
+        if(!isset($_SESSION['username'])){
+            exit('403 acceso denegado');
+        }
+        $user=$this->User_model->get_user_id($_SESSION['user_id']);
+        $this->load->view('mi_cuenta',['user'=>$user]);
+    }
 
 }

@@ -161,7 +161,8 @@ $_SESSION['token'] = $token;
 
 
             <ul class="hidden-md-down" style="float: left;">
-                <li><a target="_blank" href="https://www.facebook.com/Moviseries-1899211867018896/"><i class="icon-facebook"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/Moviseries-1899211867018896/"><i
+                            class="icon-facebook"></i></a></li>
                 <li><a target="_blank" href="#"><i class="icon-google"></i></a></li>
                 <li><a target="_blank" href="#"><i class="icon-youtube"></i></a></li>
             </ul>
@@ -175,7 +176,7 @@ $_SESSION['token'] = $token;
 
 
                     <div style="display: none;">
-                        <div id="modal-login" class="modal-content">
+                        <div id="modal-login" class="">
                             <div class="p-5 offset-lg-3 col-lg-6  offset-md-1 col-md-10">
 
                                 <!-- Begin # DIV Form -->
@@ -223,6 +224,7 @@ $_SESSION['token'] = $token;
                                                 </div>
                                             </div>
                                             <br>
+
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-block">
                                                     <i class="icon-login"></i> Ingresar
@@ -269,6 +271,7 @@ $_SESSION['token'] = $token;
                                             <input id="lost_email" name="email" class="form-control" type="email"
                                                    placeholder="E-Mail con el que creo su cuenta" required>
                                             <br>
+
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
                                                     <i class="icon-play"></i> Enviar Solicitud
@@ -298,7 +301,8 @@ $_SESSION['token'] = $token;
                                             <div id="div-register-msg">
                                                 <div id="icon-register-msg"
                                                      class="glyphicon glyphicon-chevron-right"></div>
-                                                <h3 id="text-register-msg" style="text-transform: uppercase;"><b>Crear una
+                                                <h3 id="text-register-msg" style="text-transform: uppercase;"><b>Crear
+                                                        una
                                                         nueva cuenta</b></h3>
                                             </div>
 
@@ -337,6 +341,7 @@ $_SESSION['token'] = $token;
                                                 </div>
                                             </div>
                                             <br>
+
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
                                                     <i class="icon-user-add"></i> Registrar
@@ -366,12 +371,20 @@ $_SESSION['token'] = $token;
                         </div>
                     </div>
 
-                <?php } else { ?>
+                <?php } else {
+
+                    if ($_SESSION['user_type'] == 'admin') {?>
+                        <li><a href="<?php echo base_url('admin') ?>"><i
+                                    class="icon-user"></i><?php echo $_SESSION['username'] ?>
+                            </a></li>
+                    <?php } else { ?>
+                        <li><a href="<?php echo base_url('mi-cuenta') ?>"><i
+                                    class="icon-user"></i><?php echo $_SESSION['username'] ?>
+                            </a></li>
+                    <?php } ?>
 
 
-                    <li><a href="<?php echo base_url('admin') ?>"><i
-                                class="icon-user"></i><?php echo $_SESSION['username'] ?>
-                        </a></li>
+
                     <li><a href="<?php echo base_url('logout') ?>"><i
                                 class="icon-logout-1"></i> Salir
                         </a></li>
@@ -407,11 +420,12 @@ $_SESSION['token'] = $token;
 </div>
 
 <div style="display: none;">
-    <div id="modal-search" class="modal-content">
+    <div id="modal-search">
         <input id="search-link" type="text" hidden value="<?php echo base_url('suggestions') ?>">
 
         <div class="p-5">
             <br><br>
+
             <div class="row pl-3">
                 <div class="col-10 p-0">
                     <input id="input-search" type="text" class="form-control"
@@ -456,7 +470,6 @@ $_SESSION['token'] = $token;
                    href="https://www.facebook.com/Moviseries-1899211867018896/"><i class="icon-facebook"></i></a>
                 <a style="font-size: 20px" target="_blank" class="btn btn-danger btn-circle btn-xl"
                    href="https://plus.google.com/109422618267884023911"><i class="icon-google"></i></a>
-
 
 
                 <p>Peliculas y series en HD sin publicidad</p>

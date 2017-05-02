@@ -378,11 +378,11 @@ img {
 }
 
 a {
-  color: #9c27b0;
+  color: #ff0f4d;
   text-decoration: none;
 }
 a:active, a:focus, a:hover {
-  color: #7b1fa2;
+  color: #ff4482;
   text-decoration: none;
 }
 

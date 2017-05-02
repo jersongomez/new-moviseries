@@ -9,6 +9,9 @@ class Urls extends CI_Controller
     function __construct()
     {   //en el constructor cargamos nuestro modelo
         parent::__construct();
+        if($_SESSION['user_type']!='admin'){
+            exit('403 acceso denegado');
+        }
         $this->load->model('Category_model');
         $this->load->model('Movie_model');
         $this->load->model('Url_model');

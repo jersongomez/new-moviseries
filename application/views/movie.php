@@ -9,7 +9,7 @@
 
 <?php startblock('main-content') ?>
 
-<div class="container">
+<div class="container-fluid">
 
     <div class="row p-2">
         <div class="col-md-4">
@@ -78,14 +78,14 @@
             <h3>Enlaces: </h3>
             <table class="table table-striped table-inverse" style="background-color: #E91E63; -webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
+box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                 <thead>
                 <tr class="text-center">
-                    <th class="text-center">Audio</th>
-                    <th class="text-center">Calidad</th>
-                    <th class="text-center">Servidor</th>
-                    <th class="text-center">Ver online</th>
-                    <th class="text-center">Descarga</th>
+                    <th class="text-center" style="color: white">Audio</th>
+                    <th class="text-center" style="color: white">Calidad</th>
+                    <th class="text-center" style="color: white">Servidor</th>
+                    <th class="text-center" style="color: white">Ver online</th>
+                    <th class="text-center" style="color: white">Descarga</th>
 
                 </tr>
                 </thead>
@@ -162,7 +162,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
     </div>
 </div>
 
-<div class="container" id="disqus_thread"></div>
+<div class="container-fluid" id="disqus_thread"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-no-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

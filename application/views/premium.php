@@ -40,7 +40,7 @@
 
     <h3>Un pago unico de $5.00 dolares americanos</h3>
     <p>Inicia Sesión y con tu cuenta de paypal realiza el pago y automaticamente ya eres usuario premium. (NOTA: vuelve a iniciar sesión en tu aplicación android para que los cambios surgan efecto)
-        <a href="#"><i class="icon-paypal"></i> pagar ahora</a></p>
+        <a href="<?php echo base_url('premium-paypal') ?>"><i class="icon-paypal"></i> pagar ahora</a></p>
 
 
     <h3>Contribuyendo con Moviseries</h3>

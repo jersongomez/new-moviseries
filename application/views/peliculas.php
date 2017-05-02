@@ -14,7 +14,7 @@ Moviseries peliculas
 <div class="container-fluid" style="overflow-x: hidden; overflow-y: hidden;">
     <div class="row pt-2 pb-2">
         <div class="col-lg-2 col-md-3" style="padding-left: 3px; margin-bottom: 10px; padding-right: 2px;">
-            <ul class="list-group" id="categorias">
+            <ul class="list-group card" id="categorias">
                 <li class="list-group-item"
                     style="background-color: #f40f4b; color: #fff; font-weight: bold;">CATEGORIAS
                 </li>

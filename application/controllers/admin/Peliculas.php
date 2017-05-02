@@ -11,6 +11,9 @@ class Peliculas extends CI_Controller
         if(!isset($_SESSION['username'])){
            exit('403 acceso denegado');
         }
+        if($_SESSION['user_type']!='admin'){
+            exit('403 acceso denegado');
+        }
 
         $this->load->model('Category_model');
         $this->load->model('Movie_model');

@@ -8,7 +8,7 @@
 
 <?php startblock('main-content') ?>
 
-<div class="container">
+<div class="container-fluid">
 
     <div class="row p-2">
         <div class="col-md-4">
@@ -87,13 +87,13 @@
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                         <thead>
                         <tr class="text-center">
-                            <th class="text-center">#</th>
-                            <th class="text-center">Título</th>
-                            <th class="text-center">Audio</th>
-                            <th class="text-center">Calidad</th>
-                            <th class="text-center">Servidor</th>
-                            <th class="text-center">Ver online</th>
-                            <th class="text-center">Descarga</th>
+                            <th class="text-center" style="color: white;">#</th>
+                            <th class="text-center" style="color: white;">Título</th>
+                            <th class="text-center" style="color: white;">Audio</th>
+                            <th class="text-center" style="color: white;">Calidad</th>
+                            <th class="text-center" style="color: white;">Servidor</th>
+                            <th class="text-center" style="color: white;">Ver online</th>
+                            <th class="text-center" style="color: white;">Descarga</th>
 
                         </tr>
                         </thead>
@@ -171,7 +171,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
 </div>
 
 
-<div class="container" id="disqus_thread"></div>
+<div class="container-fluid" id="disqus_thread"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-no-login" tabindex="-1" role="dialog"
