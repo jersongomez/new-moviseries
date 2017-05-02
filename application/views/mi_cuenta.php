@@ -9,9 +9,10 @@
         <hr>
         <p>A continucación te presentamos la informacion de tu cuenta</p>
         <ul>
-            <li>Nombre de usuario: <?php echo $user->username ?></li>
-            <li>E-mail: <?php echo $user->email ?></li>
-            <li>Tipo de cuenta: <?php echo $user->user_type ?></li>
+            <li>Tu ID de usuario: <span style="color: #0000ee;"><?php echo $user->user_id ?></span></li>
+            <li>Nombre de usuario: <span style="color: #0000ee;"><?php echo $user->username ?></span></li>
+            <li>E-mail: <span style="color: #0000ee;"><?php echo $user->email ?></span></li>
+            <li>Tipo de cuenta: <span style="color: #0000ee;"><?php echo $user->user_type ?></span></li>
         </ul>
 
         <p>No lo olvides esta información es esclusivamente tuya y de nadie más.</p>
