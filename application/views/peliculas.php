@@ -10,6 +10,7 @@ Moviseries peliculas
 
 
 <?php startblock('main-content') ?>
+<div class="se-pre-con"></div>
 <div class="container-fluid" style="overflow-x: hidden; overflow-y: hidden;">
     <div class="row pt-2 pb-2">
         <div class="col-lg-2 col-md-3" style="padding-left: 3px; margin-bottom: 10px; padding-right: 2px;">
@@ -105,6 +106,12 @@ width: 100%;"
 <?php startblock('scripts') ?>
 <script>
     $(function () {
+
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+        });
+
         $('#nav-peliculas').addClass('active');
         <?php if(isset($category_name)){ ?>
         $('#category-<?php echo str_replace("+","-",urlencode($category_name)) ?>').addClass('active');

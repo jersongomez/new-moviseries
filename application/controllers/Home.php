@@ -36,7 +36,7 @@ class Home extends CI_Controller
         $bmovies = $this->Movie_model->get_movies_by_score(18);
 
 
-        $this->load->view('home', ['last_movies' => $mmovies, 'last_series' => $series, 'last_seasons' => $seasons,'best_movies'=>$bmovies]);
+        $this->load->view('home', ['last_movies' => $mmovies, 'last_series' => $series, 'last_seasons' => $seasons, 'best_movies' => $bmovies]);
 
 
     }
@@ -178,5 +178,17 @@ class Home extends CI_Controller
 
         echo json_encode($data);
 
+    }
+
+
+    public function android()
+    {
+        $this->load->view('android');
+    }
+
+
+    public function premium()
+    {
+        $this->load->view('premium');
     }
 }

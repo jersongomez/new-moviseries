@@ -92,7 +92,7 @@
 
                 <div class="row">
                     <?php foreach ($best_movies as $movie) { ?>
-                        <div class="mitem col-xl-2  col-lg-3 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a class="shadow" href="<?php echo base_url('peliculas/' . $movie->movie_id) ?>">

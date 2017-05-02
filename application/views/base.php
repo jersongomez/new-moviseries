@@ -8,12 +8,13 @@ $_SESSION['token'] = $token;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1A237E"/>
+    <meta name="theme-color" content="#025aa5"/>
     <?php startblock('meta') ?><?php endblock() ?>
     <title><?php startblock('title') ?><?php endblock() ?></title>
     <link rel="icon" href="/assets/img/logo.png">
 
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/material.css">
     <link rel="stylesheet" href="/assets/css/fontello.css">
     <link rel="stylesheet" href="/assets/css/animation.css">
     <link rel="stylesheet" href="/assets/css/ap-fullscreen-modal.css">
@@ -160,9 +161,9 @@ $_SESSION['token'] = $token;
 
 
             <ul class="hidden-md-down" style="float: left;">
-                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                <li><a href="#"><i class="icon-google"></i></a></li>
-                <li><a href="#"><i class="icon-youtube"></i></a></li>
+                <li><a target="_blank" href="https://www.facebook.com/Moviseries-1899211867018896/"><i class="icon-facebook"></i></a></li>
+                <li><a target="_blank" href="#"><i class="icon-google"></i></a></li>
+                <li><a target="_blank" href="#"><i class="icon-youtube"></i></a></li>
             </ul>
 
             <ul style="float: right;">
@@ -185,7 +186,7 @@ $_SESSION['token'] = $token;
                                         <div class="modal-body">
 
                                             <div id="div-login-msg" class="text-center">
-                                                <h3 id="text-login-msg">INGRESO AL SISTEMA</h3>
+                                                <h3 id="text-login-msg"><b>INGRESO AL SISTEMA</b></h3>
                                             </div>
 
                                             <input type="text" name="token" value="<?php echo $token ?>" hidden>
@@ -205,7 +206,7 @@ $_SESSION['token'] = $token;
                                                    type="email"
                                                    placeholder="Email: miemail@gmail.com" required>
 
-                                            <hr>
+                                            <br>
                                             <label for="login_passwor">Contraseña</label>
 
                                             <div class="row">
@@ -221,7 +222,7 @@ $_SESSION['token'] = $token;
                                                             class="icon-eye-1 icon-show-pass"></i></button>
                                                 </div>
                                             </div>
-                                            <hr>
+                                            <br>
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-block">
                                                     <i class="icon-login"></i> Ingresar
@@ -248,7 +249,7 @@ $_SESSION['token'] = $token;
                                           style="display:none;">
                                         <div class="modal-body">
 
-                                            <h3>RECUPERACCIÓN DE CONTRASEÑA</h3>
+                                            <h3><b>RECUPERACCIÓN DE CONTRASEÑA</b></h3>
 
                                             <input type="text" name="token" value="<?php echo $token ?>" hidden>
 
@@ -267,7 +268,7 @@ $_SESSION['token'] = $token;
                                             </div>
                                             <input id="lost_email" name="email" class="form-control" type="email"
                                                    placeholder="E-Mail con el que creo su cuenta" required>
-                                            <hr>
+                                            <br>
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
                                                     <i class="icon-play"></i> Enviar Solicitud
@@ -297,8 +298,8 @@ $_SESSION['token'] = $token;
                                             <div id="div-register-msg">
                                                 <div id="icon-register-msg"
                                                      class="glyphicon glyphicon-chevron-right"></div>
-                                                <h3 id="text-register-msg" style="text-transform: uppercase;">Crear una
-                                                    nueva cuenta</h3>
+                                                <h3 id="text-register-msg" style="text-transform: uppercase;"><b>Crear una
+                                                        nueva cuenta</b></h3>
                                             </div>
 
                                             <div class="text-center p-2">
@@ -314,12 +315,12 @@ $_SESSION['token'] = $token;
                                             <input name="username" id="register_username" class="form-control"
                                                    type="text"
                                                    placeholder="Usuario" required>
-                                            <hr>
+                                            <br>
                                             <label for="">E-mail:</label>
                                             <input name="email" id="register_email" class="form-control"
                                                    type="email"
                                                    placeholder="E-Mail" required>
-                                            <hr>
+                                            <br>
                                             <label for="">Contraseña:</label>
 
                                             <div class="row">
@@ -335,7 +336,7 @@ $_SESSION['token'] = $token;
                                                             class="icon-eye-1 icon-show-pass"></i></button>
                                                 </div>
                                             </div>
-                                            <hr>
+                                            <br>
                                             <div>
                                                 <button type="submit" class="btn btn-primary btn-lg btn-block">
                                                     <i class="icon-user-add"></i> Registrar
@@ -384,8 +385,8 @@ $_SESSION['token'] = $token;
                 <li><a id="nav-inicio" href="<?php echo base_url() ?>">INICIO</a></li>
                 <li><a id="nav-peliculas" href="<?php echo base_url('peliculas') ?>">PELICULAS</a></li>
                 <li><a id="nav-series" href="<?php echo base_url('series') ?>">SERIES</a></li>
-                <li><a id="nav-android-app" href="#">ANDROID APP</a></li>
-                <li><a id="nav-premium" href="#">PREMIUM</a></li>
+                <li><a id="nav-android-app" href="<?php echo base_url('android-app') ?>">ANDROID APP</a></li>
+                <li><a id="nav-premium" href="<?php echo base_url('premium') ?>">PREMIUM</a></li>
                 <li><a id="nav-contactos" href="#">CONTACTOS</a></li>
             </ul>
 
@@ -452,12 +453,10 @@ $_SESSION['token'] = $token;
                 <b>&copy; Moviseries.xyz</b>
                 <hr>
                 <a style="font-size: 20px" target="_blank" class="btn btn-primary btn-circle btn-xl"
-                   href="https://es-la.facebook.com/darwindevelopers/"><i class="icon-facebook"></i></a>
+                   href="https://www.facebook.com/Moviseries-1899211867018896/"><i class="icon-facebook"></i></a>
                 <a style="font-size: 20px" target="_blank" class="btn btn-danger btn-circle btn-xl"
                    href="https://plus.google.com/109422618267884023911"><i class="icon-google"></i></a>
 
-                <a style="font-size: 20px" target="_blank" class="btn btn-info btn-circle btn-xl" href="https://twitter.com/DarwinDeveloper"><i
-                        class="icon-twitter"></i></a>
 
 
                 <p>Peliculas y series en HD sin publicidad</p>
@@ -494,6 +493,7 @@ $_SESSION['token'] = $token;
 
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
+<script src="/assets/js/material.js"></script>
 <script src="/assets/js/plyr.js"></script>
 <script src="/assets/js/ap-fullscreen-modal.js"></script>
 <script src="/assets/slick/slick.js"></script>

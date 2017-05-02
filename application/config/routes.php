@@ -56,6 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['logout'] = 'users/logout';
 $route['peliculas'] = 'peliculas';
+$route['android-app'] = 'home/android';
+$route['premium'] = 'home/premium';
 $route['series'] = 'series';
 $route['download-file']['post'] = 'home/stream_moe_download';
 $route['suggestions'] = 'home/suggestions';

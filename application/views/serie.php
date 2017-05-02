@@ -18,9 +18,9 @@
             <img width="100%" src="<?php echo $serie->cover ?>" alt=" <?php echo $serie->serie_name ?>">
             <br>
             <div class="text-center" style="background-color: #293b65; padding: 10px; color: white;">
-                <button class="btn btn-sm btn-default" onclick="send_score()"
-                        style="position: absolute; right: 20px; background-color: #ff0f4d; color: white; cursor: pointer;">
-                    <i class="icon-pencil"></i></button>
+                <button  onclick="send_score()"
+                        style="border: none; padding: 4px; position: absolute; right: 20px;  width: 30px; background-color: #ff0f4d; color: white; cursor: pointer;">
+                    <i class="icon-pencil-1"></i></button>
 
                 <h4 style="color: white; text-transform: uppercase;">Puntuación</h4>
                 <ul style="list-style-type: none; padding-left: 5px; padding-top: 3px; margin: 0;">
