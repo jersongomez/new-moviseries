@@ -400,7 +400,6 @@ $_SESSION['token'] = $token;
                 <li><a id="nav-series" href="<?php echo base_url('series') ?>">SERIES</a></li>
                 <li><a id="nav-android-app" href="<?php echo base_url('android-app') ?>">ANDROID APP</a></li>
                 <li><a id="nav-premium" href="<?php echo base_url('premium') ?>">PREMIUM</a></li>
-                <li><a id="nav-contactos" href="#">CONTACTOS</a></li>
             </ul>
 
 

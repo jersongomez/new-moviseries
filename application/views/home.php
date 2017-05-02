@@ -75,6 +75,10 @@
                 Peliculas</a>
         </li>
         <li class="nav-item">
+            <a style="color: white;" class="nav-link" data-toggle="tab" href="#tab-series" role="tab">Top
+                Series</a>
+        </li>
+        <li class="nav-item">
             <a style="color: white;" class="nav-link" data-toggle="tab" href="#last-series" role="tab">Ultimas
                 Series</a>
         </li>
@@ -156,6 +160,92 @@
                                             for ($i; $i < 10; $i++) { ?>
                                                 <li  style="display: inline"><i style="font-size: 12px; color: rgba(98, 107, 150, 0.58);"
                                                                            class="icon-star-empty"></i></li>
+                                            <?php }
+                                        } ?>
+                                    </ul>
+
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </a>
+
+
+                        </div>
+                    <?php } ?>
+
+                </div>
+
+            </section>
+        </div>
+        <div class="tab-pane active" id="tab-series" role="tabpanel">
+            <section class="regular" style="margin-top: 6px;">
+
+                <div class="row">
+                    <?php foreach ($best_series as $serie) { ?>
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+
+
+                            <a class="shadow" href="<?php echo base_url('series/' . $serie->serie_id) ?>">
+                                <div class="play  hvr-sweep-to-right">
+
+                                    <div class="text-center"
+                                         style="margin-top: 20px; margin-bottom: auto;">
+
+                                        <div
+                                            style="padding-top: 17px; padding-left: 5px; padding-right: 10px; line-height: 80%;">
+                                            <b style="color: white; font-size: 15px; "><?php echo $serie->serie_name; ?></b>
+                                        </div>
+
+
+                                        <div class="row pl-3 pr-3" style="margin-top: 30px;">
+                                            <div class="col-5"
+                                                 style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
+                                            <div class="col-2" style="padding: 0; margin: 0;">
+                                                <img src="/assets/img/ic_play_circle.png" alt=""
+                                                     style="100%; margin-left: auto; margin-right: auto;">
+                                            </div>
+                                            <div class="col-5"
+                                                 style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
+                                        </div>
+
+                                        <div class="text-justify p-2"
+                                             style="position: relative; font-size: 14px; line-height: 100%;">
+                                            <?php echo $serie->short_description; ?>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <img src="<?php echo $serie->cover ?>">
+
+                                <div class="w-100 mt-1 text-center"
+                                     style="background-color: #0E2231; min-height: 30px;">
+                                    <ul style="list-style-type: none; padding-left: 5px; padding-top: 3px; margin: 0; padding-left: 0px; padding-right: 0;">
+                                        <?php
+
+                                        $n = $serie->score;
+                                        $whole = floor($n);      // 1
+                                        $fraction = $n - $whole; // .25
+                                        for ($i = 0; $i < floor($n); $i++) { ?>
+                                            <li style="display: inline"><i style="font-size: 12px; color: #ff0f4d;"
+                                                                           class="icon-star-1"></i></li>
+                                        <?php }
+                                        if ($fraction > .5) {
+                                            ?>
+                                            <li  style="display: inline"><i style="font-size: 13px; color: #ff0f4d;"
+                                                                            class="icon-star-half"></i></li>
+                                            <?php
+
+                                            for ($i = $i + 1; $i < 10; $i++) { ?>
+                                                <li  style="display: inline"><i style="font-size: 12px; color: rgba(98, 107, 150, 0.58);"
+                                                                                class="icon-star-empty"></i></li>
+                                            <?php }
+                                        } else {
+                                            for ($i; $i < 10; $i++) { ?>
+                                                <li  style="display: inline"><i style="font-size: 12px; color: rgba(98, 107, 150, 0.58);"
+                                                                                class="icon-star-empty"></i></li>
                                             <?php }
                                         } ?>
                                     </ul>

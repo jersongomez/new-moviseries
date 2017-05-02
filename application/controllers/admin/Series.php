@@ -14,6 +14,7 @@ class Series extends CI_Controller
 
         $this->load->model('Category_model');
         $this->load->model('Serie_model');
+        $this->load->model('Url_model');
         $this->load->model('Temporada_model');
 
         $new_path = $_SERVER['DOCUMENT_ROOT'] . '/covers/';
@@ -28,6 +29,15 @@ class Series extends CI_Controller
         $categories = $this->Category_model->getCategories();
         $this->load->view('admin/series', ['categories' => json_encode($categories)]);
     }
+
+
+
+    public function mega($serie_id)
+    {
+        $this->load->view('admin/enlaces_mega_series',
+            ['serie' => $this->Serie_model->getById($serie_id)]);
+    }
+
 
 
     public function temporadas($serie_id)
@@ -93,8 +103,9 @@ class Series extends CI_Controller
                     $str = $str . ", " . $categories[$i]->category_name;
                 }
                 $url_edit = base_url('admin/editar-serie/' . $serie->serie_id);
+                $url_mega = base_url('admin/series/mega/' . $serie->serie_id);
 
-                $url_temp = base_url('admin/series/' . $serie->serie_id . '/temporadas');
+                $url_temp = base_url('admin/series/' . $serie->serie_id.'/temporadas');
                 $json = array('<img src="' . $serie->cover . '" width="60">',
                     $serie->serie_id,
                     $serie->serie_name,
@@ -102,6 +113,7 @@ class Series extends CI_Controller
                     $serie->created_at,
                     $str,
                     "<a class='btn btn-primary btn-sm w-100' href='$url_temp'><i class='icon-link-1'></i> Temporadas</a>
+                <a class='btn btn-info btn-sm w-100' href='$url_mega'><i class='icon-edit'></i> MEGA</a>
                 <a class='btn btn-info btn-sm w-100' href='$url_edit'><i class='icon-edit'></i> Editar</a>
                 <button class='btn btn-danger btn-sm w-100' title='eliminar categoria' onclick=\"delete_item($serie->serie_id)\"><i class='icon-trash-2'></i> Eliminar</button>"
                 );
@@ -363,5 +375,82 @@ class Series extends CI_Controller
         }
     }
 
+
+    public function get_mega_urls()
+    {
+        if (!$this->input->is_ajax_request()) {
+            exit('No direct script access allowed');
+        }
+
+        if ($_SESSION['user_type'] == 'admin') {
+
+            $serie_id = $_POST['id'];
+            $urls = $this->Url_model->getUrlsMEGABySerie($serie_id);
+            $data = array();
+
+            foreach ($urls as $url) {
+                $url_web = base_url('series/' . $serie_id);
+
+                $json = array($url->mega_id, $url->name, $url->language_name,
+                    "<a target='_blank' class='btn btn-info btn-sm' href='$url->url'><i class='icon-link-1'></i> Ver en MEGA</a>
+                    <a target='_blank' class='btn btn-primary btn-sm' href='$url_web'><i class='icon-link-1'></i> Ver en la web</a>
+                <button class='btn btn-danger btn-sm' title='eliminar categoria' onclick=\"delete_item($url->mega_id)\"><i class='icon-trash-2'></i> Eliminar</button>"
+                );
+
+                array_push($data, $json);
+            }
+            echo json_encode(array('data' => $data));
+
+            // echo json_encode($response);
+        }
+    }
+
+
+    public function insert_mega()
+    {
+        if (!$this->input->is_ajax_request()) {
+            exit('No direct script access allowed');
+        }
+        $link = $_POST['link'];
+        $server = $_POST['url'];
+        $idioma = $_POST['idioma'];
+        $note = $_POST['note'];
+        $movie_id = $_POST['serie_id'];
+
+
+        $data = [
+            'name' => $link,
+            'url' => $server,
+            'language_name' => $idioma,
+            'note'=>$note,
+            'serie_id' => $movie_id
+        ];
+
+        $url_id = $this->Url_model->insert_mega_serie($data);
+        if ($url_id != -1) {
+            echo "exito";
+        } else {
+            echo "error al crear el link";
+        }
+
+    }
+
+
+    public function delete_row_mega()
+    {
+        if (!$this->input->is_ajax_request()) {
+            exit('No direct script access allowed');
+        }
+
+        $url_id = $_POST['id'];
+
+        $res = $this->Url_model->delete_row_mega_serie($url_id);
+        if ($res > 0) {
+            echo "exito";
+        } else {
+            echo "no se pudo eliminar el enlace";
+        }
+
+    }
 
 }

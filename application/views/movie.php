@@ -22,8 +22,8 @@
 
             <div class="text-center" style="background-color: #293b65; padding: 10px; color: white;">
 
-                <button  onclick="send_score()"
-                         style="border: none; padding: 4px; position: absolute; right: 20px;  width: 30px; background-color: #ff0f4d; color: white; cursor: pointer;">
+                <button onclick="send_score()"
+                        style="border: none; padding: 4px; position: absolute; right: 20px;  width: 30px; background-color: #ff0f4d; color: white; cursor: pointer;">
                     <i class="icon-pencil-1"></i></button>
 
                 <h4 style="color: white; text-transform: uppercase;">Puntuación</h4>
@@ -86,11 +86,12 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                     <th class="text-center" style="color: white">Servidor</th>
                     <th class="text-center" style="color: white">Ver online</th>
                     <th class="text-center" style="color: white">Descarga</th>
+                    <th class="text-center" style="color: white">¿Enlace caido?</th>
 
                 </tr>
                 </thead>
                 <?php foreach ($urls as $url) { ?>
-                    <tr class="text-center">
+                    <tr class="text-center" style="background-color: #f2f2f2;">
                         <th class="text-center" scope="row"><?php echo $url->language_name ?></th>
                         <th class="text-center" scope="row"><?php echo $url->quality ?></th>
                         <th class="text-center" scope="row"><?php echo $url->server ?></th>
@@ -122,14 +123,43 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                             <?php } ?>
                         </th>
 
+                        <th class="text-center" scope="row">
+                            <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('PELICULA: '.$movie->name.' - calidad  '.$url->quality).'&url_id='.$url->url_id) ?>">REPORTAR</a>
+                        </th>
+
 
                     </tr>
                 <?php } ?>
             </table>
+
+            <h3>Enlaces de MEGA: </h3>
+            <?php if (isset($_SESSION['user_type'])) {
+                if ($_SESSION['user_type'] == 'free') { ?>
+                    <div class="card card-outline-danger p-4">
+                        <b>Solo nuestros usuarios premium pueden ver los enlaces</b>
+                    </div>
+                <?php } else {
+                    foreach ($mega_urls as $mega) {?>
+                        <div class="p-4 text-center" style="border: 4px double #ff0f4d;">
+                            <h3 style="color: #35568c;"><b><?php echo $mega->name ?></b></h3>
+                            <p>Idioma: <?php echo $mega->language_name ?></p>
+                            <p><?php echo $mega->name ?>note</p>
+                            <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>" style="max-width: 200px;"> DESCARGAR</a>
+                            <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('MEGA: '.$mega->name).'&url_id='.$mega->mega_id) ?>"> ENLACE CAIDO</a>
+                        </div>
+                    <?php }
+                }
+            } else { ?>
+                <div class="card card-outline-danger p-4">
+                    <b>Solo nuestros usuarios registrados pueden ver los enlaces</b>
+                </div>
+            <?php } ?>
+
+
         </div>
     </div>
 </div>
-
+<hr>
 
 <!--
 <video poster="https://thumb.oloadcdn.net/splash/HHJfQUNJlck/eOVT_jDN84E.jpg" controls>
@@ -162,7 +192,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
     </div>
 </div>
 
-<div class="container-fluid" id="disqus_thread"></div>
+<div class="container-fluid p-4" id="disqus_thread"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-no-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -269,9 +299,9 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                 data: data,
                 success: function (result) {
                     $('#modal-calificar').modal('hide');
-                    if(result==1){
+                    if (result == 1) {
                         alert("tu calificación ha sido guardada")
-                    }else{
+                    } else {
                         alert("Error: ya calificaste esta pelicula anteriormente")
                     }
                 },

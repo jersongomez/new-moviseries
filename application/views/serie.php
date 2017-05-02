@@ -69,7 +69,7 @@
             <div style="background-color: #0099cc; color: white;">
                 <h3 class='text-center p-1'>
                     <a data-toggle='collapse' href='#collapsex<?php echo $tmp['temporada']->number ?>'
-                       style="color: white; text-transform: uppercase; text-decoration: none; width: 100%;">
+                       style="color: white; text-transform: uppercase; text-decoration: none; width: 100%; display: block">
                         temporada <?php echo $tmp['temporada']->number ?>
                     </a>
                 </h3>
@@ -94,11 +94,12 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                             <th class="text-center" style="color: white;">Servidor</th>
                             <th class="text-center" style="color: white;">Ver online</th>
                             <th class="text-center" style="color: white;">Descarga</th>
+                            <th class="text-center" style="color: white;">Enlace Caido?</th>
 
                         </tr>
                         </thead>
                         <?php foreach ($tmp['capitulos'] as $cap) { ?>
-                            <tr class="text-center">
+                            <tr class="text-center" style="background-color: #f4f4f4;">
                                 <th class="text-center" scope="row"><?php echo $cap->episode ?></th>
                                 <th class="text-center" scope="row"><?php echo $cap->episode_name ?></th>
                                 <th class="text-center" scope="row"><?php echo $cap->language_name ?></th>
@@ -132,6 +133,9 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                                         </a>
                                     <?php } ?>
                                 </th>
+                                <th class="text-center" scope="row">
+                                    <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('SERIE: '.$serie->serie_name.' - temporada  '.$tmp['temporada']->number.' - cap '.$cap->episode).'&url_id='.$cap->url_id) ?>">REPORTAR</a>
+                                </th>
 
 
                             </tr>
@@ -141,6 +145,29 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
 
                 </div>
             </div>
+        </div>
+    <?php } ?>
+
+    <h3>Enlaces de MEGA: </h3>
+    <?php if (isset($_SESSION['user_type'])) {
+        if ($_SESSION['user_type'] == 'free') { ?>
+            <div class="card card-outline-danger p-4">
+                <b>Solo nuestros usuarios premium pueden ver los enlaces</b>
+            </div>
+        <?php } else {
+            foreach ($mega_urls as $mega) {?>
+                <div class="p-4 text-center" style="border: 4px double #ff0f4d;">
+                    <h3 style="color: #35568c;"><b><?php echo $mega->name ?></b></h3>
+                    <p>Idioma: <?php echo $mega->language_name ?></p>
+                    <p><?php echo $mega->name ?>note</p>
+                    <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>" style="max-width: 200px;"> DESCARGAR</a>
+                    <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('MEGA: '.$mega->name).'&url_id='.$mega->mega_id) ?>"> ENLACE CAIDO</a>
+                </div>
+            <?php }
+        }
+    } else { ?>
+        <div class="card card-outline-danger p-4">
+            <b>Solo nuestros usuarios registrados pueden ver los enlaces</b>
         </div>
     <?php } ?>
 

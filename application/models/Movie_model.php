@@ -24,6 +24,7 @@ class Movie_model extends CI_Model
 
     public function get_movies()
     {
+        $this->db->order_by("created_at", "desc");
         $query = $this->db->get('movies');
         return $query->result();
     }

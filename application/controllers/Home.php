@@ -34,9 +34,10 @@ class Home extends CI_Controller
         $series = $this->Serie_model->get_last_series(18);
         $seasons = $this->Temporada_model->get_last(18);
         $bmovies = $this->Movie_model->get_movies_by_score(18);
+        $bseries = $this->Serie_model->get_series_by_score(18);
 
 
-        $this->load->view('home', ['last_movies' => $mmovies, 'last_series' => $series, 'last_seasons' => $seasons, 'best_movies' => $bmovies]);
+        $this->load->view('home', ['last_movies' => $mmovies, 'last_series' => $series, 'last_seasons' => $seasons, 'best_movies' => $bmovies,'best_series' => $bseries]);
 
 
     }
@@ -45,9 +46,11 @@ class Home extends CI_Controller
     public function movie($id)
     {
         $movie = $this->Movie_model->movie_score($id);
+
         if ($movie) {
             $urls = $this->Url_model->getUrlsByMovie($id);
-            $this->load->view('movie', ['movie' => $movie, 'urls' => $urls]);
+            $mega_urls = $this->Url_model->getUrlsMEGAByMovie($id);
+            $this->load->view('movie', ['movie' => $movie, 'urls' => $urls,'mega_urls'=>$mega_urls]);
         } else {
             echo "404 pagina no encontrada";
         }
@@ -66,9 +69,9 @@ class Home extends CI_Controller
             foreach ($temporadas as $temp) {
                 $temporadas_capitulos[] = ['temporada' => $temp, 'capitulos' => $this->Temporada_model->get_capitulos_temporada($temp->season_id)];
             }
+            $mega_urls = $this->Url_model->getUrlsMEGABySerie($id);
 
-
-            $this->load->view('serie', ['serie' => $serie, 'temporadas_capitulos' => $temporadas_capitulos]);
+            $this->load->view('serie', ['serie' => $serie, 'temporadas_capitulos' => $temporadas_capitulos,'mega_urls'=>$mega_urls]);
         } else {
             echo "404 pagina no encontrada";
         }
@@ -193,6 +196,12 @@ class Home extends CI_Controller
     }
 
 
+    public function link_roto()
+    {
+        $this->load->view('reporte');
+    }
+
+
     public function busqueda()
     {
         $q = $_GET['query'];
@@ -220,6 +229,48 @@ class Home extends CI_Controller
 
         } else
             echo "el parametro de busqueda no es correcto";
+
+    }
+
+
+    public function send_report()
+    {
+        if (!$this->input->is_ajax_request()) {
+            exit('No direct script access allowed');
+        }
+
+        $email = $_POST['email'];
+        $asunto = $_POST['subject'];
+        $sms='Remitente: '.$email.'<br>Asunto:'.$asunto.'<br>Mensaje: '.$_POST['msg'];
+
+        //cargamos la libreria email de ci
+        $this->load->library("email");
+        //configuracion para gmail
+        $configGmail = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'moviserieshd@gmail.com',
+            'smtp_pass' => 'gkrqdhjfsbtueinb',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        );
+
+        //cargamos la configuración para enviar con gmail
+        $this->email->initialize($configGmail);
+
+
+
+        $this->email->from('moviserieshd@gmail.com');
+        $this->email->to('dsmr.apps@gmail.com');
+        $this->email->subject($asunto);
+        $this->email->message($sms);
+       if($this->email->send()){
+           echo "Se ha enviado tu reporte exitosamente, lo revisaremos lo más pronto posible. GRACIAS POR TU AYUDA";
+       }else{
+           echo "Error no se pudo enviar el reporte, por favor intenta nuevamente recargando la página.";
+       }
 
     }
 }

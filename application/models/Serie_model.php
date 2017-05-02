@@ -25,6 +25,7 @@ class Serie_model extends CI_Model
 
     public function get_all()
     {
+        $this->db->order_by("created_at", "desc");
         $query = $this->db->get($this->table);
         return $query->result();
     }
@@ -35,6 +36,13 @@ class Serie_model extends CI_Model
         $this->db->order_by('created_at','desc');
         $query = $this->db->get($this->table, $limit, $offset);
         return $query->result();
+    }
+
+    public function get_series_by_score($limit)
+    {
+        $sql = "SELECT m.*, COALESCE((SELECT AVG(ms.score) FROM series_score as ms WHERE serie_id=m.serie_id),0) score from series as m order by score DESC LIMIT $limit";
+        $query = $this->db->query($sql);
+        return $query->result();  // this returns an object of all results
     }
 
 

@@ -143,4 +143,7 @@ class Series extends CI_Controller
         echo $res;
     }
 
+
+
+
 }

@@ -3,12 +3,12 @@ require_once 'base.php';
 $token = password_hash("token", PASSWORD_DEFAULT);
 ?>
 
-<?php startblock('title') ?>Enlaces MEGA pelicula<?php endblock() ?>
+<?php startblock('title') ?>Enlaces MEGA serie<?php endblock() ?>
 
 
 <?php startblock('main-content') ?>
 <h2 class="text-center" style="background-color: #E91E63; color: #fff; ">
-    Enlaces <?php echo $movie->name ?> </h2>
+    Enlaces <?php echo $serie->serie_name ?> </h2>
 <hr>
 <div class="container">
     <table id="data-table" class="display" cellspacing="0" width="100%">
@@ -32,10 +32,10 @@ $token = password_hash("token", PASSWORD_DEFAULT);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
-                <form id="form-new-link" action="<?php echo base_url('admin/peliculas/insert-enlaces-mega') ?>"
+                <form id="form-new-link" action="<?php echo base_url('admin/series/insert-enlaces-mega') ?>"
                       enctype="multipart/form-data">
 
-                    <input name="movie_id" type="text" value="<?php echo $movie->movie_id ?>" hidden>
+                    <input name="serie_id" type="text" value="<?php echo $serie->serie_id ?>" hidden>
 
                     <div class="modal-header">
                         <h5 class="modal-title">Nuevo Enalce</h5>
@@ -54,6 +54,8 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                             <input required type="url" name="url" class="form-control"
                                    placeholder="https://">
                             <br>
+
+
                             <textarea name="note" id="" cols="30" rows="10" class="form-control" placeholder="nota..."></textarea>
                             <br>
 
@@ -100,10 +102,10 @@ $token = password_hash("token", PASSWORD_DEFAULT);
         table = $('#data-table').DataTable({
             "ajax": {
                 "bProcessing": true,
-                "url": "<?php echo base_url('admin/peliculas/enlaces-mega')?>",
+                "url": "<?php echo base_url('admin/series/enlaces-mega')?>",
                 "data": {
                     "_token": "<?php echo $token ?>",
-                    "id": "<?php echo $movie->movie_id ?>"
+                    "id": "<?php echo $serie->serie_id ?>"
                 },
                 "type": "POST"
             },
@@ -201,7 +203,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                 if (!running) {
                     running = true;
                     $.ajax({
-                        url: '<?php echo base_url('admin/peliculas/eliminar-enlace-mega') ?>',
+                        url: '<?php echo base_url('admin/series/eliminar-enlace-mega') ?>',
                         type: 'post',
                         data: 'id=' + id,
                         success: function (result) {

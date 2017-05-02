@@ -131,12 +131,13 @@ class Urls extends CI_Controller
         $server = $_POST['url'];
         $idioma = $_POST['idioma'];
         $movie_id = $_POST['movie_id'];
-
+        $note = $_POST['note'];
 
         $data = [
             'name' => $link,
             'url' => $server,
             'language_name' => $idioma,
+            'note' => $note,
             'movie_id' => $movie_id
         ];
 

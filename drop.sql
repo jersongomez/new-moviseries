@@ -5,7 +5,7 @@
 # Project name:                                                          #
 # Author:                                                                #
 # Script type:           Database drop script                            #
-# Created on:            2017-05-02 11:50                                #
+# Created on:            2017-05-02 11:38                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -43,25 +43,25 @@ ALTER TABLE `categories_series` DROP FOREIGN KEY `series_categories_series`;
 
 ALTER TABLE `mega_movies` DROP FOREIGN KEY `movies_mega_movies`;
 
-ALTER TABLE `mega_seasons` DROP FOREIGN KEY `seasons_mega_seasons`;
+ALTER TABLE `mega_series` DROP FOREIGN KEY `series_mega_series`;
 
 # ---------------------------------------------------------------------- #
-# Drop table "mega_seasons"                                              #
+# Drop table "mega_series"                                               #
 # ---------------------------------------------------------------------- #
 
 # Remove autoinc for PK drop #
 
-ALTER TABLE `mega_seasons` MODIFY `mega_id` INTEGER NOT NULL;
+ALTER TABLE `mega_series` MODIFY `mega_id` INTEGER NOT NULL;
 
 # Drop constraints #
 
-ALTER TABLE `mega_seasons` ALTER COLUMN `language_name` DROP DEFAULT;
+ALTER TABLE `mega_series` ALTER COLUMN `language_name` DROP DEFAULT;
 
-ALTER TABLE `mega_seasons` DROP PRIMARY KEY;
+ALTER TABLE `mega_series` DROP PRIMARY KEY;
 
 # Drop table #
 
-DROP TABLE `mega_seasons`;
+DROP TABLE `mega_series`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "mega_movies"                                               #

@@ -73,10 +73,14 @@ class Users extends CI_Controller
                     $this->email->to($email);
                     $this->email->subject('Moviseries Activación Cuenta');
                     $this->email->message($html);
-                    $this->email->send();
+                    if($this->email->send()){
+                        echo "Verifique su email para activar su cuenta";
+                    }else{
+                        echo "No se pudo enviar el email de verificación, por favor contacta al administrador.";
+                    }
 
 
-                    echo "Verifique su email para activar su cuenta";
+
                 }
 
             }

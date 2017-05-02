@@ -33,6 +33,13 @@ class Url_model extends CI_Model
     }
 
 
+    public function getUrlsMEGABySerie($serie_id)
+    {
+        $query = $this->db->query("select * from mega_series where serie_id=$serie_id");
+        return $query->result();
+    }
+
+
     public function insert($url)
     {
         $result = $this->db->insert('urls', $url);
@@ -53,6 +60,16 @@ class Url_model extends CI_Model
     }
 
 
+    public function insert_mega_serie($url)
+    {
+        $result = $this->db->insert('mega_series', $url);
+        if ($result) {
+            return $this->db->insert_id();
+        }
+        return -1;
+    }
+
+
     public function delete_row($id)
     {
         return $this->db->delete('urls', array('url_id' => $id));
@@ -62,6 +79,12 @@ class Url_model extends CI_Model
     public function delete_row_mega_movie($id)
     {
         return $this->db->delete('mega_movies', array('mega_id' => $id));
+    }
+
+
+    public function delete_row_mega_serie($id)
+    {
+        return $this->db->delete('mega_series', array('mega_id' => $id));
     }
 
 
