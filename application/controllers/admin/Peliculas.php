@@ -54,13 +54,15 @@ class Peliculas extends CI_Controller
                 $url_edit = base_url('admin/editar-pelicula/' . $movie->movie_id);
 
                 $url = base_url('admin/peliculas/enlaces/' . $movie->movie_id);
+                $url_mega = base_url('admin/peliculas/mega/' . $movie->movie_id);
                 $json = array('<img src="' . $movie->cover . '" width="60">',
                     $movie->movie_id, $movie->name,
                     $movie->year,
                     $str,
-                    "<a class='btn btn-primary btn-sm w-100' href='$url'><i class='icon-link-1'></i> Enlaces</a>
-                <a class='btn btn-info btn-sm w-100' href='$url_edit'><i class='icon-edit'></i> Editar</a>
-                <button class='btn btn-danger btn-sm w-100' title='eliminar categoria' onclick=\"delete_item($movie->movie_id)\"><i class='icon-trash-2'></i> Eliminar</button>"
+                    "<a class='btn btn-primary btn-sm' href='$url'><i class='icon-link-1'></i> Enlaces</a>
+                    <a class='btn btn-primary btn-sm' href='$url_mega'><i class='icon-link-1'></i> MEGA</a>
+                <a class='btn btn-info btn-sm' href='$url_edit'><i class='icon-edit'></i> Editar</a>
+                <button class='btn btn-danger btn-sm' title='eliminar categoria' onclick=\"delete_item($movie->movie_id)\"><i class='icon-trash-2'></i> Eliminar</button>"
                 );
 
                 array_push($data, $json);

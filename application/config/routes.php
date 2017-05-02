@@ -92,6 +92,7 @@ $route['admin/capitulos-temporada']['post'] = 'admin/series/get_capitulos_tempor
 $route['admin/series/list']['post'] = 'admin/series/list_series';
 $route['admin/peliculas/list']['post'] = 'admin/peliculas/list_movies';
 $route['admin/peliculas/enlaces']['post'] = 'admin/urls/get_urls';
+$route['admin/peliculas/enlaces-mega']['post'] = 'admin/urls/get_mega_urls';
 $route['admin/get-generos']['post'] = 'admin/categorias/get_categorias';
 $route['admin/serie-temporadas']['post'] = 'admin/series/get_temporadas_serie';
 
@@ -111,6 +112,7 @@ $route['admin/insert-movie']['post'] = 'admin/peliculas/insert_movie';
 $route['admin/insert-serie']['post'] = 'admin/series/insert_serie';
 $route['admin/insert-language']['post'] = 'admin/idiomas/insert_language';
 $route['admin/peliculas/insert-enlaces']['post'] = 'admin/urls/insert';
+$route['admin/peliculas/insert-enlaces-mega']['post'] = 'admin/urls/insert_mega';
 $route['admin/serie/insert-temporada']['post'] = 'admin/series/nueva_temporada';
 $route['admin/serie/insert-enlaces']['post'] = 'admin/capitulos/insert';
 
@@ -123,6 +125,7 @@ $route['admin/eliminar-serie']['post'] = 'admin/series/eliminar_serie';
 $route['admin/eliminar-genero']['post'] = 'admin/categorias/delete';
 $route['admin/eliminar-usuario']['post'] = 'admin/user/delete_user';
 $route['admin/peliculas/eliminar-enlace']['post'] = 'admin/urls/delete_row';
+$route['admin/peliculas/eliminar-enlace-mega']['post'] = 'admin/urls/delete_row_mega';
 
 
 $route['admin'] = 'admin/user';
@@ -137,6 +140,7 @@ $route['admin/series/([0-9]+)/temporadas'] = 'admin/series/temporadas/$1';
 
 $route['admin/peliculas'] = 'admin/peliculas';
 $route['admin/peliculas/enlaces/([0-9]+)'] = 'admin/urls/index/$1';
+$route['admin/peliculas/mega/([0-9]+)'] = 'admin/urls/mega/$1';
 
 $route['admin/idiomas'] = 'admin/idiomas';
 $route['admin/nueva-pelicula'] = 'admin/peliculas/nueva_pelicula';
