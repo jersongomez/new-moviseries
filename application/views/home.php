@@ -2,7 +2,7 @@
 <?php startblock('title') ?>MoviSeries<?php endblock() ?>
 
 <?php startblock('main-content') ?>
-<div class="se-pre-con"></div>
+
 <div class="container-fluid p-0" style="background-color: white; margin-top: 10px;">
 
     <section id="last-movies" class="regular slider">
@@ -71,21 +71,21 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist" style="background-color: #ff0f4d;">
         <li class="nav-item">
-            <a style="color: white;" class="nav-link   active" data-toggle="tab" href="#tab-home" role="tab">Top
+            <a style="color: white; font-size: 10px;" class="nav-link active" data-toggle="tab" href="#tab-home" role="tab">Top
                 Peliculas</a>
         </li>
 
         <li class="nav-item">
-            <a style="color: white;" class="nav-link" data-toggle="tab" href="#tab-series" role="tab">Top
+            <a style="color: white; font-size: 10px;" class="nav-link" data-toggle="tab" href="#tab-series" role="tab">Top
                 Series</a>
         </li>
 
         <li class="nav-item">
-            <a style="color: white;" class="nav-link" data-toggle="tab" href="#last-series" role="tab">Ultimas
+            <a style="color:white;  font-size: 10px; " class="nav-link" data-toggle="tab" href="#last-series" role="tab">Ultimas
                 Series</a>
         </li>
         <li class="nav-item">
-            <a style="color: white;" class="nav-link" data-toggle="tab" href="#series-updated" role="tab">Series
+            <a style="color: white; font-size: 10px;" class="nav-link" data-toggle="tab" href="#series-updated" role="tab">Series
                 Actualizadas</a>
         </li>
 
@@ -98,7 +98,7 @@
 
                 <div class="row">
                     <?php foreach ($best_movies as $movie) { ?>
-                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a class="shadow" href="<?php echo base_url('peliculas/' . $movie->movie_id) ?>">
@@ -184,7 +184,7 @@
 
                 <div class="row">
                     <?php foreach ($best_series as $serie) { ?>
-                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a class="shadow" href="<?php echo base_url('series/' . $serie->serie_id) ?>">
@@ -271,7 +271,7 @@
 
                 <div class="row">
                     <?php foreach ($last_series as $serie) { ?>
-                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a href="<?php echo base_url('series/' . $serie->serie_id) ?>">
@@ -324,7 +324,7 @@
 
                 <div class="row">
                     <?php foreach ($last_seasons as $season) { ?>
-                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a href="<?php echo base_url('series/' . $season->serie_id) ?>">
@@ -390,10 +390,6 @@
 <script>
     $(document).on('ready', function () {
 
-        $(window).load(function () {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");
-        });
 
         $('#last-movies').slick({
             dots: false,

@@ -11,7 +11,7 @@ class Temporada_model extends CI_Model
 
     public function get_last($limit)
     {
-        $query = $this->db->query("SELECT s.*, se.serie_name FROM seasons as s, series as se WHERE se.serie_id=s.serie_id LIMIT $limit");
+        $query = $this->db->query("SELECT s.*, se.serie_name FROM seasons as s, series as se WHERE se.serie_id=s.serie_id ORDER by updated_at desc LIMIT $limit");
         return $query->result();
     }
 
@@ -29,7 +29,7 @@ class Temporada_model extends CI_Model
 
     public function get_temporadas_serie($serie_id)
     {
-        $query = $this->db->query("select * from seasons where serie_id=$serie_id");
+        $query = $this->db->query("select * from seasons where serie_id=$serie_id ORDER by number");
         return $query->result();
     }
 

@@ -76,62 +76,65 @@
         <div class="col-12"><br>
 
             <h3>Enlaces: </h3>
-            <table class="table table-striped table-inverse" style="background-color: #E91E63; -webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
+            <div class="row table-responsive">
+                <table class="table" style="-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
-                <thead>
-                <tr class="text-center">
-                    <th class="text-center" style="color: white">Audio</th>
-                    <th class="text-center" style="color: white">Calidad</th>
-                    <th class="text-center" style="color: white">Servidor</th>
-                    <th class="text-center" style="color: white">Ver online</th>
-                    <th class="text-center" style="color: white">Descarga</th>
-                    <th class="text-center" style="color: white">¿Enlace caido?</th>
-
-                </tr>
-                </thead>
-                <?php foreach ($urls as $url) { ?>
-                    <tr class="text-center" style="background-color: #f2f2f2;">
-                        <th class="text-center" scope="row"><?php echo $url->language_name ?></th>
-                        <th class="text-center" scope="row"><?php echo $url->quality ?></th>
-                        <th class="text-center" scope="row"><?php echo $url->server ?></th>
-                        <th class="text-center" scope="row">
-                            <button class="btn btn-sm btn-primary play-video"
-                                    onclick="play_video('<?php echo $url->file_id ?>','<?php echo $url->server ?>')">
-                                <i class="icon-play-4"></i> VER
-                                ONLINE
-                            </button>
-                        </th>
-                        <th class="text-center" scope="row">
-                            <?php if ($url->server == 'openload') { ?>
-                                <a target="_blank" class="btn btn-sm btn-info active w-100"
-                                   href="https://openload.co/f/<?php echo $url->file_id ?>"
-                                ><i class="icon-download"></i>
-                                    DESCARGAR
-                                </a>
-                            <?php } else if ($url->server == 'stream.moe') { ?>
-                                <a target="_blank" class="btn btn-sm btn-info active w-100"
-                                   href="https://stream.moe/<?php echo $url->file_id ?>"
-                                ><i class="icon-download"></i>
-                                    DESCARGAR
-                                </a>
-                            <?php } else if ($url->server == 'google drive') { ?>
-                                <a target="_blank" class="btn-sm  btn btn-info active w-100"
-                                   href="https://drive.google.com/file/d/<?php echo $url->file_id ?>/view"
-                                ><i class="icon-download"></i>
-                                    DESCARGAR
-                                </a>
-                            <?php } ?>
-                        </th>
-
-                        <th class="text-center" scope="row">
-                            <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('PELICULA: '.$movie->name.' - calidad  '.$url->quality).'&url_id='.$url->url_id) ?>">REPORTAR</a>
-                        </th>
-
+                    <thead  class="table-inverse" style="background-color: #E91E63; ">
+                    <tr class="text-center">
+                        <th class="text-center" style="color: white">Audio</th>
+                        <th class="text-center" style="color: white">Calidad</th>
+                        <th class="text-center" style="color: white">Servidor</th>
+                        <th class="text-center" style="color: white">Ver online</th>
+                        <th class="text-center" style="color: white">Descarga</th>
+                        <th class="text-center" style="color: white">¿Enlace caido?</th>
 
                     </tr>
-                <?php } ?>
-            </table>
+                    </thead>
+                    <?php foreach ($urls as $url) { ?>
+                        <tr class="text-center" style="background-color: #f2f2f2;">
+                            <th class="text-center" scope="row"><?php echo $url->language_name ?></th>
+                            <th class="text-center" scope="row"><?php echo $url->quality ?></th>
+                            <th class="text-center" scope="row"><?php echo $url->server ?></th>
+                            <th class="text-center" scope="row">
+                                <button class="btn btn-sm btn-primary play-video"
+                                        onclick="play_video('<?php echo $url->file_id ?>','<?php echo $url->server ?>')">
+                                    <i class="icon-play-4"></i> VER
+                                    ONLINE
+                                </button>
+                            </th>
+                            <th class="text-center" scope="row">
+                                <?php if ($url->server == 'openload') { ?>
+                                    <a target="_blank" class="btn btn-sm btn-info active w-100"
+                                       href="https://openload.co/f/<?php echo $url->file_id ?>"
+                                    ><i class="icon-download"></i>
+                                        DESCARGAR
+                                    </a>
+                                <?php } else if ($url->server == 'stream.moe') { ?>
+                                    <a target="_blank" class="btn btn-sm btn-info active w-100"
+                                       href="https://stream.moe/<?php echo $url->file_id ?>"
+                                    ><i class="icon-download"></i>
+                                        DESCARGAR
+                                    </a>
+                                <?php } else if ($url->server == 'google drive') { ?>
+                                    <a target="_blank" class="btn-sm  btn btn-info active w-100"
+                                       href="https://drive.google.com/file/d/<?php echo $url->file_id ?>/view"
+                                    ><i class="icon-download"></i>
+                                        DESCARGAR
+                                    </a>
+                                <?php } ?>
+                            </th>
+
+                            <th class="text-center" scope="row">
+                                <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('PELICULA: '.$movie->name.' - calidad  '.$url->quality).'&url_id='.$url->url_id) ?>">REPORTAR</a>
+                            </th>
+
+
+                        </tr>
+                    <?php } ?>
+                </table>
+
+            </div>
 
             <h3>Enlaces de MEGA: </h3>
             <?php if (isset($_SESSION['user_type'])) {
@@ -144,7 +147,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                         <div class="p-4 text-center" style="border: 4px double #ff0f4d;">
                             <h3 style="color: #35568c;"><b><?php echo $mega->name ?></b></h3>
                             <p>Idioma: <?php echo $mega->language_name ?></p>
-                            <p><?php echo $mega->name ?>note</p>
+                            <p><?php echo $mega->note ?></p>
                             <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>" style="max-width: 200px;"> DESCARGAR</a>
                             <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('MEGA: '.$mega->name).'&url_id='.$mega->mega_id) ?>"> ENLACE CAIDO</a>
                         </div>

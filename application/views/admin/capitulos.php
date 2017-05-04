@@ -57,7 +57,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                         <div class="md-form text-left">
 
                             <label for="">Nombre</label>
-                            <input required name="episode_name" type="text" class="form-control">
+                            <input id="episode_name" required name="episode_name" type="text" class="form-control">
 
                             <br>
 
@@ -200,7 +200,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                                     className: "success",
                                     position: "bottom left",
                                 });
-                            $('#form-new-link').trigger('reset');
+                            $('#episode_name').val("");
                             update();
                         } else {
                             alert(data);

@@ -3315,11 +3315,11 @@ pre code {
   margin-left: 0;
 }
 .page-item.active .page-link {
-  background-color: rgba(153, 153, 153, 0.4);
+  background-color: rgb(31, 31, 171);
 }
 .page-item.disabled .page-link {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(26, 26, 146, 0.91);
   cursor: not-allowed;
 }
 
@@ -3656,7 +3656,7 @@ tr.collapse.show {
   opacity: 1;
 }
 .btn:active, .btn.active {
-  background-color: rgba(153, 153, 153, 0.4);
+  background-color: rgb(28, 28, 178);
   -webkit-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
           box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
   z-index: 80;
@@ -4956,7 +4956,7 @@ a.chip-warning:hover {
   text-decoration: none;
 }
 .list-group-item.active {
-  background-color: #eeeeee;
+  background-color: #1c1cb2;
 }
 .list-group-item.disabled {
   background-color: white;
@@ -4970,7 +4970,7 @@ a.chip-warning:hover {
   width: 100%;
 }
 .list-group-item-action:active, .list-group-item-action:focus, .list-group-item-action:hover {
-  background-color: #eeeeee;
+  background-color: #1c1cb2;
 }
 .list-group-item-action:focus {
   outline: 0;
@@ -4980,7 +4980,7 @@ a.chip-warning:hover {
 }
 
 .list-group-item-primary {
-  background-color: #9c27b0;
+  background-color: #1f1fab;
   color: white;
 }
 .list-group-item-primary:active, .list-group-item-primary:focus, .list-group-item-primary:hover {
@@ -4991,7 +4991,7 @@ a.chip-warning:hover {
   color: white;
 }
 .list-group-item-primary.list-group-item-action:active, .list-group-item-primary.list-group-item-action:focus, .list-group-item-primary.list-group-item-action:hover {
-  background-color: #7b1fa2;
+  background-color: #0099cc;
   color: white;
 }
 
@@ -7246,7 +7246,7 @@ a.chip-warning:hover {
   }
 }
 .nav-tabs .nav-link:active, .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgb(31, 31, 171);
 }
 .nav-tabs .nav-link:active, .nav-tabs .nav-link.active {
   opacity: 1;

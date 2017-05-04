@@ -79,13 +79,13 @@
                  role='tabpanel'
                  aria-labelledby='headingx<?php echo $tmp['temporada']->number ?>'>
 
-                <div class='panel-body' style='padding: 0;'>
+                <div class='panel-body table-responsive' style='padding: 0;'>
 
 
-                    <table class="table table-striped table-inverse" style="background-color: #E91E63; -webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
+                    <table class="table" style="-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
-                        <thead>
+                        <thead class="table-inverse" style="background-color: #E91E63;">
                         <tr class="text-center">
                             <th class="text-center" style="color: white;">Capitulo #</th>
                             <th class="text-center" style="color: white;">Título</th>
@@ -159,7 +159,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);">
                 <div class="p-4 text-center" style="border: 4px double #ff0f4d;">
                     <h3 style="color: #35568c;"><b><?php echo $mega->name ?></b></h3>
                     <p>Idioma: <?php echo $mega->language_name ?></p>
-                    <p><?php echo $mega->name ?>note</p>
+                    <p><?php echo $mega->note ?></p>
                     <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>" style="max-width: 200px;"> DESCARGAR</a>
                     <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('MEGA: '.$mega->name).'&url_id='.$mega->mega_id) ?>"> ENLACE CAIDO</a>
                 </div>

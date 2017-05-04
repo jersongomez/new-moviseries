@@ -4,3 +4,15 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
 </IfModule>
+
+
+<IfModule mpm_worker_module>
+      ServerLimit              250
+      StartServers              10
+      MinSpareThreads           75
+      MaxSpareThreads          250
+      ThreadLimit               64
+      ThreadsPerChild           32
+      MaxRequestWorkers       8000
+      MaxConnectionsPerChild 10000
+</IfModule>

@@ -8,7 +8,7 @@ $_SESSION['token'] = $token;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#025aa5"/>
+    <meta name="theme-color" content="#1A237E"/>
     <?php startblock('meta') ?><?php endblock() ?>
     <title><?php startblock('title') ?><?php endblock() ?></title>
     <link rel="icon" href="/assets/img/logo.png">
@@ -141,6 +141,8 @@ $_SESSION['token'] = $token;
             z-index: 9999;
             background: url(/assets/img/loading2.gif) center no-repeat #fff;
         }
+
+
 
     </style>
 

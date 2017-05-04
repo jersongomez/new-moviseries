@@ -1,5 +1,5 @@
 <?php include_once 'base.php' ?>
-<?php startblock('title') ?>Nueva Pelicula<?php endblock() ?>
+<?php startblock('title') ?>Nueva Serie<?php endblock() ?>
 
 <?php startblock('main-content') ?>
 <div class="container">
@@ -144,7 +144,7 @@
 
 <div id="modal-upload" class="modal">
     <div class="modal-body text-center" style="background-color: #fff;">
-        <h3>Publicando pelicula</h3>
+        <h3>Publicando serie</h3>
         <img src="/assets/img/loading2.gif" alt="" width="100">
     </div>
 </div>

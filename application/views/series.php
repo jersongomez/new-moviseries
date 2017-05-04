@@ -1,7 +1,7 @@
 <?php include_once 'base.php' ?>
 
 <?php startblock('title') ?>
-Moviseries peliculas
+Moviseries Series
 <?php endblock() ?>
 
 <?php startblock('meta') ?>
@@ -16,7 +16,7 @@ Moviseries peliculas
         <div class="col-lg-2 col-md-3" style="padding-left: 3px; margin-bottom: 10px; padding-right: 2px;">
             <ul class="list-group card" id="categorias">
                 <li class="list-group-item"
-                    style="background-color: #f40f4b; color: #fff; font-weight: bold;">CATEGORIAS
+                    style="background-color: #f40f4b; color: #fff; font-weight: bold;"><a href="<?php echo base_url('series') ?>" style="color: white;">CATEGORIAS</a>
                 </li>
                 <?php foreach ($categorias as $cat) { ?>
                     <li id="category-<?php echo str_replace("+", "-", urlencode($cat->category_name)) ?>"
@@ -30,7 +30,7 @@ width: 100%;"
         <div class="col-lg-10 col-md-9  pl-3 pt-1 pr-3 mr-0 ml-0">
             <div class="row regular">
                 <?php foreach ($series as $serie) { ?>
-                    <div class="mitem  col-lg-2 col-md-4 col-sm-6 p-0" style="border: 3px solid #fff;">
+                    <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 3px solid #fff;">
 
                         <a href="<?php echo base_url('series/' . $serie->serie_id) ?>">
                             <div class="play hvr-sweep-to-right">
