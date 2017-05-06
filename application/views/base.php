@@ -79,8 +79,18 @@ $_SESSION['token'] = $token;
             border: 2px solid #eb0f4b;
         }
 
+
+        .modal-titlem{
+            padding: 6px; height: 80px; line-height: 2.7; background-color: #f40f4b; color: white;
+        }
+
+
         /* styles for mobile */
         @media screen and (max-width: 767px) {
+            .modal-titlem{
+                padding: 6px; height: 80px; line-height: 4.5; background-color: #f40f4b; color: white;
+                font-size: 14px;
+            }
             .tinynav {
                 display: block
             }

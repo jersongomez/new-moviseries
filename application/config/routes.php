@@ -65,6 +65,7 @@ $route['user-premium']['post'] = 'paypal/pagar';
 $route['mi-cuenta'] = 'users/mi_cuenta';
 $route['series'] = 'series';
 $route['download-file']['post'] = 'home/stream_moe_download';
+$route['get-temporada']['post'] = 'series/get_temporada';
 $route['suggestions'] = 'home/suggestions';
 $route['activacion/(.+)/(.+)'] = 'users/activation/$1/$2';
 $route['peliculas/([0-9]+)'] = 'home/movie/$1';

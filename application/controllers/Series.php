@@ -9,6 +9,7 @@ class Series extends CI_Controller
         parent::__construct();
         $this->load->model('Category_model');
         $this->load->model('Serie_model');
+        $this->load->model('Temporada_model');
         $this->load->helper('url');
         $this->load->library('pagination');
 
@@ -139,11 +140,88 @@ class Series extends CI_Controller
             'serie_id' => $_POST['serie_id'],
             'score' => $_POST['score']
         ];
-        $res=$this->Serie_model->calificar($data);
+        $res = $this->Serie_model->calificar($data);
         echo $res;
     }
 
 
+    function get_temporada()
+    {
+        if (!$this->input->is_ajax_request()) {
+            exit('No direct script access allowed');
+        }
+        $id = $_POST['id'];
+        $number = $_POST['number'];
+        $serie_name = $_POST['serie_name'];
+        $capitulos = $this->Temporada_model->get_capitulos_temporada($id);
 
+
+        echo "<table class=\"table\" style=\"-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
+box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);\">
+                        <thead class=\"table-inverse\" style=\"background-color: #E91E63;\">
+                        <tr class=\"text-center\">
+                            <th class=\"text-center\" style=\"color: white;\">Capitulo #</th>
+                            <th class=\"text-center\" style=\"color: white;\">Título</th>
+                            <th class=\"text-center\" style=\"color: white;\">Audio</th>
+                            <th class=\"text-center\" style=\"color: white;\">Calidad</th>
+                            <th class=\"text-center\" style=\"color: white;\">Servidor</th>
+                            <th class=\"text-center\" style=\"color: white;\">Ver online</th>
+                            <th class=\"text-center\" style=\"color: white;\">Descarga</th>
+                            <th class=\"text-center\" style=\"color: white;\">Enlace Caido?</th>
+
+                        </tr>
+                        </thead>";
+
+        foreach ($capitulos as $cap) {
+
+            $enlace_caido = base_url('enlace-caido?msg=' . urlencode('SERIE: ' . $serie_name . ' - temporada  ' . $number . ' - cap ' . $cap->episode) . '&url_id=' . $cap->url_id);
+            echo " <tr class=\"text-center\" style=\"background-color: #f4f4f4;\">
+                                <th class=\"text-center\" scope=\"row\">$cap->episode</th>
+                                <th class=\"text-center\" scope=\"row\">$cap->episode_name</th>
+                                <th class=\"text-center\" scope=\"row\">$cap->language_name</th>
+                                <th class=\"text-center\" scope=\"row\">$cap->quality</th>
+                                <th class=\"text-center\" scope=\"row\">$cap->server</th>
+
+                                <th class=\"text-center\" scope=\"row\">
+                                    <button class=\"btn btn-sm btn-primary play-video\"
+                                            onclick=\"play_video('$cap->file_id','$cap->server',$number,'$cap->episode_name',$cap->episode)\">
+                                        <i class=\"icon-play-4\"></i> VER
+                                        ONLINE
+                                    </button>
+                                </th>
+                                 <th class=\"text-center\" scope=\"row\">";
+
+if ($cap->server == 'openload') {
+    $urld="https://openload.co/f/$cap->file_id";
+} else if ($cap->server == 'stream.moe') {
+    $urld="https://stream.moe/$cap->file_id";
+} else if ($cap->server == 'google drive') {
+    $urld="https://drive.google.com/file/d/$cap->file_id/view";
+}
+
+
+            echo "
+
+<a target=\"_blank\" class=\"btn-sm  btn btn-info active w-100\"
+       href=\"$urld\"
+    ><i class=\"icon-download\"></i>
+        DESCARGAR
+    </a>
+
+             </th>
+                                <th class=\"text-center\" scope=\"row\">
+                                    <a target=\"_blank\" class=\"btn btn-secondary\" href=\"$enlace_caido\">REPORTAR</a>
+                                </th>
+                                  </tr>
+            ";
+
+
+        }
+
+        echo "</table>";
+
+
+    }
 
 }

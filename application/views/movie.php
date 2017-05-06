@@ -68,8 +68,11 @@
             <h2 class="text-center" style="background-color: #0099cc; color: #fff; margin-bottom: 0; margin-top: 10px;">
                 TRAILER</h2>
 
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo $movie->trailer ?>?rel=0" allowfullscreen></iframe>
+            </div>
 
-            <div id="movie-trailer" data-type="youtube" data-video-id="<?php echo $movie->trailer ?>"></div>
+
 
         </div>
 
@@ -187,8 +190,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
 
 <div id="video-modal" style="display: none;">
     <div id="modal-content-demo" class="modal-content">
-        <h3 id="titulo-video" class="text-center"
-            style="padding: 6px; height: 80px; line-height: 2.3; background-color: #f40f4b; color: white;"><?php echo $movie->name ?></h3>
+        <h3 id="titulo-video" class="text-center modal-titlem"><?php echo $movie->name ?></h3>
 
         <div class="text-center" id="video-content" style="margin-top: -5px; background-color: #0c0c0c;">
 
@@ -217,39 +219,43 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modal-calificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form id="form-cal" method="post" action="<?php echo base_url('calificar-pelicula') ?>">
-                <input name="user_id" type="text" value="<?php echo $_SESSION['user_id'] ?>" hidden>
-                <input name="movie_id" type="text" value="<?php echo $movie->movie_id ?>" hidden>
+<?php
+if(isset($_SESSION['username'])){?>
+    <!-- Modal -->
+    <div class="modal fade" id="modal-calificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="form-cal" method="post" action="<?php echo base_url('calificar-pelicula') ?>">
+                    <input name="user_id" type="text" value="<?php echo $_SESSION['user_id'] ?>" hidden>
+                    <input name="movie_id" type="text" value="<?php echo $movie->movie_id ?>" hidden>
 
-                <div class="modal-body text-center">
+                    <div class="modal-body text-center">
 
-                    <h3 class="text-center"
-                        style="padding: 20px; background-color: #ff0f4d; color: white; text-transform: uppercase;">
-                        Califica esta pelicula</h3>
+                        <h3 class="text-center"
+                            style="padding: 20px; background-color: #ff0f4d; color: white; text-transform: uppercase;">
+                            Califica esta pelicula</h3>
 
-                    <div class="row">
-                        <div class="col-md-8 text-right p-1">
-                            Elige un número entre 0-10
-                        </div>
-                        <div class="col-md-4">
-                            <input name="score" class="form-control" type="number" min="0" max="10" value="1">
+                        <div class="row">
+                            <div class="col-md-8 text-right p-1">
+                                Elige un número entre 0-10
+                            </div>
+                            <div class="col-md-4">
+                                <input name="score" class="form-control" type="number" min="0" max="10" value="1">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer text-center">
-                    <button type="submit" class="btn btn-primary"><i class="icon-star"></i>
-                        Calificar
-                    </button>
-                </div>
-            </form>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-primary"><i class="icon-star"></i>
+                            Calificar
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+<?php }?>
+
 
 <hr>
 <?php endblock() ?>
@@ -349,7 +355,7 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
 
         var html = '';
 
-        var altura_video = $(window).height() - $('#titulo-video').height() - 20;
+        var altura_video = $(window).height() - $('#titulo-video').height() - 24;
 
         if (server === 'openload') {
             html = ' <iframe src="https://openload.co/embed/' + fileID + '" scrolling="no" frameborder="0" height="' + altura_video + '" style="overflow: hidden; width: 100%;" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>';

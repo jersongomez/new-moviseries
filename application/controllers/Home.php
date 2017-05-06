@@ -62,16 +62,12 @@ class Home extends CI_Controller
         $serie = $this->Serie_model->serie_score($id);
         if ($serie) {
 
-
+            $series = $this->Serie_model->get_last_series(8);
             $temporadas = $this->Temporada_model->get_temporadas_serie($id);
-            $temporadas_capitulos = array();
 
-            foreach ($temporadas as $temp) {
-                $temporadas_capitulos[] = ['temporada' => $temp, 'capitulos' => $this->Temporada_model->get_capitulos_temporada($temp->season_id)];
-            }
             $mega_urls = $this->Url_model->getUrlsMEGABySerie($id);
 
-            $this->load->view('serie', ['serie' => $serie, 'temporadas_capitulos' => $temporadas_capitulos, 'mega_urls' => $mega_urls]);
+            $this->load->view('serie', ['last_series' => $series, 'serie' => $serie, 'temporadas' => $temporadas, 'mega_urls' => $mega_urls]);
         } else {
             echo "404 pagina no encontrada";
         }
@@ -160,7 +156,7 @@ class Home extends CI_Controller
 
 //Iterate over the extracted links and display their URLs
             foreach ($links as $link) {
-                echo $link->getAttribute('href').'<br>';
+                echo $link->getAttribute('href') . '<br>';
             }
 
         }
@@ -304,4 +300,10 @@ class Home extends CI_Controller
         }
 
     }
+
+
+
+
+
+
 }

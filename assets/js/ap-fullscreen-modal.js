@@ -357,4 +357,6 @@
 
 function stop_player(){
 	$('#video-content').html("");
+	$('#trailer-content').html("");
+
 }
