@@ -45,11 +45,11 @@ class Movie_model extends CI_Model
     }
 
 
-    public function get_last_movies_android()
+    public function get_last_movies_android($limit)
     {
         $this->db->order_by("updated_at", "desc");
         $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
-        $query = $this->db->get('movies', 30);
+        $query = $this->db->get('movies', $limit);
         return $query->result();
     }
 
@@ -82,6 +82,14 @@ class Movie_model extends CI_Model
     public function get_movies_by_score($limit)
     {
         $sql = "SELECT m.*, COALESCE((SELECT AVG(ms.score) FROM movies_score as ms WHERE movie_id=m.movie_id),0) score from movies as m order by score DESC LIMIT $limit";
+        $query = $this->db->query($sql);
+        return $query->result();  // this returns an object of all results
+    }
+
+
+    public function get_movies_by_score_android($limit)
+    {
+        $sql = "SELECT m.movie_id, m.name, m.year, m.cover, m.trailer, m.short_description, m.created_at, m.updated_at, COALESCE((SELECT AVG(ms.score) FROM movies_score as ms WHERE movie_id=m.movie_id),0) score from movies as m order by score DESC LIMIT $limit";
         $query = $this->db->query($sql);
         return $query->result();  // this returns an object of all results
     }

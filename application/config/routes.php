@@ -161,4 +161,6 @@ $route['admin/editar-pelicula/([0-9]+)'] = 'admin/peliculas/editar_pelicula/$1';
 $route['android/login'] = 'android/login';
 $route['android/last-movies'] = 'android/last_movies';
 $route['android/last-series'] = 'android/last_series';
+$route['android/last-seasons'] = 'android/last_seasons';
+$route['android/top-movies'] = 'android/top_movies';
 

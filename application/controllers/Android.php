@@ -58,7 +58,7 @@ class Android extends CI_Controller
 
     function last_movies()
     {
-        $movies = $this->Movie_model->get_last_movies_android();
+        $movies = $this->Movie_model->get_last_movies_android(15);
         $mmovies = array();
         foreach ($movies as $movie) {
             $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
@@ -72,8 +72,22 @@ class Android extends CI_Controller
 
     function last_series()
     {
-        $series = $this->Serie_model->get_last_series_android(30);
+        $series = $this->Serie_model->get_last_series_android(20);
         echo json_encode($series);
+    }
+
+
+
+    function last_seasons(){
+        $seasons = $this->Temporada_model->get_last_android(20);
+
+        echo json_encode($seasons);
+    }
+
+
+    function top_movies(){
+        $bmovies = $this->Movie_model->get_movies_by_score_android(20);
+        echo json_encode($bmovies);
     }
 
 }

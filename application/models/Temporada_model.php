@@ -15,6 +15,13 @@ class Temporada_model extends CI_Model
         return $query->result();
     }
 
+
+    public function get_last_android($limit)
+    {
+        $query = $this->db->query("SELECT s.number, s.season_id, s.cover, s.trailer, se.serie_name, se.serie_id FROM seasons as s, series as se WHERE se.serie_id=s.serie_id ORDER by updated_at desc LIMIT $limit");
+        return $query->result();
+    }
+
     function get_temporada($id)
     {
         $query = $this->db->query("SELECT * FROM seasons WHERE season_id=$id");
