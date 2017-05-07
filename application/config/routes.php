@@ -156,3 +156,9 @@ $route['admin/nueva-pelicula'] = 'admin/peliculas/nueva_pelicula';
 $route['admin/nueva-serie'] = 'admin/series/nueva_serie';
 $route['admin/editar-pelicula/([0-9]+)'] = 'admin/peliculas/editar_pelicula/$1';
 
+
+//android
+$route['android/login'] = 'android/login';
+$route['android/last-movies'] = 'android/last_movies';
+$route['android/last-series'] = 'android/last_series';
+

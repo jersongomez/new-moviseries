@@ -45,6 +45,15 @@ class Movie_model extends CI_Model
     }
 
 
+    public function get_last_movies_android()
+    {
+        $this->db->order_by("updated_at", "desc");
+        $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
+        $query = $this->db->get('movies', 30);
+        return $query->result();
+    }
+
+
     public function get_movies_category($category_name)
     {
         $query = $this->db->query("SELECT m.* FROM movies as m WHERE m.movie_id in (select mc.movie_id from movies_categories as mc WHERE mc.category_name='$category_name')");
