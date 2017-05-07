@@ -45,11 +45,12 @@ class Movie_model extends CI_Model
     }
 
 
-    public function get_last_movies_android($limit)
+    public function get_last_movies_android($limit, $offset)
     {
         $this->db->order_by("updated_at", "desc");
+        $this->db->limit($limit, $offset);
         $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
-        $query = $this->db->get('movies', $limit);
+        $query = $this->db->get('movies');
         return $query->result();
     }
 

@@ -56,9 +56,9 @@ class Android extends CI_Controller
     }
 
 
-    function last_movies()
+    function last_movies($limit,$offset)
     {
-        $movies = $this->Movie_model->get_last_movies_android(15);
+        $movies = $this->Movie_model->get_last_movies_android($limit,$offset);
         $mmovies = array();
         foreach ($movies as $movie) {
             $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
