@@ -231,7 +231,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
             // alert($image.cropper('getCroppedCanvas').toDataURL());
 
             //img64 = $image.cropper('getCroppedCanvas').toDataURL();
-            img64 = $image.cropper('getCroppedCanvas', {width: 351, height: 696}).toDataURL();
+            img64 = $image.cropper('getCroppedCanvas',{width: 205, height: 293}).toDataURL();
             $('#modallogo').modal('hide');
 
 

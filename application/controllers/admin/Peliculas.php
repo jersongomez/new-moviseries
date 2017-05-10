@@ -124,7 +124,7 @@ class Peliculas extends CI_Controller
             list(, $data) = explode(',', $data);
 
             $data = base64_decode($data);
-            $filename = 'movie-' . md5(uniqid(rand(), true)) . '.png';
+            $filename = 'movie-' . md5(uniqid(rand(), true)) . '.jpg';
             $cover_path = 'covers/' . $filename;
             file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/covers/' . $filename, $data);
         }

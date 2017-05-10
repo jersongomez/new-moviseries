@@ -70,9 +70,9 @@ class Android extends CI_Controller
         echo json_encode($mmovies);
     }
 
-    function last_series()
+    function last_series($limit,$offset)
     {
-        $series = $this->Serie_model->get_last_series_android(20);
+        $series = $this->Serie_model->get_last_series_android($limit,$offset);
         echo json_encode($series);
     }
 
@@ -88,6 +88,21 @@ class Android extends CI_Controller
     function top_movies(){
         $bmovies = $this->Movie_model->get_movies_by_score_android(20);
         echo json_encode($bmovies);
+    }
+
+
+
+    public function movie($id)
+    {
+        $movie = $this->Movie_model->movie_score_android($id);
+
+        if ($movie) {
+            $urls = $this->Url_model->getUrlsByMovie($id);
+            $mega_urls = $this->Url_model->getUrlsMEGAByMovie($id);
+            echo json_encode(['movie' => $movie, 'urls' => $urls, 'mega_urls' => $mega_urls]);
+        } else {
+
+        }
     }
 
 }

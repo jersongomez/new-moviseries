@@ -2,7 +2,7 @@
 <?php startblock('title') ?>MoviSeries<?php endblock() ?>
 
 <?php startblock('main-content') ?>
-<div class="se-pre-con"></div>
+
 <div class="container-fluid p-0" style="background-color: white; margin-top: 10px;">
 
     <section id="last-movies" class="regular slider">
@@ -389,10 +389,7 @@
 <?php startblock('scripts') ?>
 <script>
     $(document).on('ready', function () {
-        $(window).load(function () {
-            // Animate loader off screen
-            $(".se-pre-con").fadeOut("slow");
-        });
+        
 
         $('#last-movies').slick({
             dots: false,

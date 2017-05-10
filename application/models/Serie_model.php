@@ -70,9 +70,10 @@ class Serie_model extends CI_Model
     }
 
 
-    public function get_last_series_android($limit)
+    public function get_last_series_android($limit, $offset)
     {
         $this->db->order_by("created_at", "desc");
+        $this->db->limit($limit, $offset);
         $this->db->select('serie_id,serie_name,year,cover,short_description,created_at');
         $query = $this->db->get($this->table,$limit);
         return $query->result();

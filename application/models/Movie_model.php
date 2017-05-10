@@ -113,6 +113,27 @@ class Movie_model extends CI_Model
         }
     }
 
+
+
+
+    public function movie_score_android($id)
+    {
+        $this->db->select('movie_id');
+        $this->db->from('movies_score');
+        $this->db->where('movie_id', $id);
+        $num = $this->db->count_all_results();
+
+        $sql = "SELECT m.movie_id, m.name, m.year, m.cover, m.trailer, m.short_description, m.created_at, m.updated_at, COALESCE((SELECT AVG(ms.score) FROM movies_score as ms WHERE movie_id=m.movie_id),0) score, $num votos from movies as m WHERE m.movie_id=$id";
+        $query = $this->db->query($sql);
+        $res = $query->result();  // this returns an object of all results
+        if ($res) {
+            return $res[0];
+        } else {
+            return null;
+        }
+    }
+
+
     function getById($id)
     {
         $query = $this->db->query("SELECT * FROM movies WHERE movie_id=$id");

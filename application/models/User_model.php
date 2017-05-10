@@ -93,7 +93,7 @@ class User_model extends CI_Model
     {
         $this->delete_token($user_id);
 
-        $token = bin2hex(random_bytes(15));;
+        $token = md5(uniqid(rand(), true));
         $data = array(
             'user_id' => $user_id,
             'token' => $token
