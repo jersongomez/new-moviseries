@@ -160,7 +160,7 @@ class Android extends CI_Controller
     public function search_movie($q)
     {
 
-        $movies = $this->Movie_model->search_movie(rawurldecode($q));
+        $movies = $this->Movie_model->search_movie(urldecode($q));
         $mmovies = array();
         foreach ($movies as $movie) {
             $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
@@ -171,5 +171,16 @@ class Android extends CI_Controller
 
         echo json_encode($mmovies);
     }
+
+
+
+    public function search_serie($q)
+    {
+
+        $series = $this->Serie_model->search_serie(urldecode($q));
+
+        echo json_encode($series);
+    }
+
 
 }

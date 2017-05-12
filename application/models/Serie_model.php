@@ -132,6 +132,16 @@ class Serie_model extends CI_Model
 
 
 
+    public function search_serie($q)
+    {
+        $sql = "select m.serie_id,m.serie_name,m.year,m.cover,m.short_description,m.created_at from series as m WHERE m.serie_name LIKE '%" . $q . "%' or m.short_description LIKE '%" . $q . "%' ";
+        $query = $this->db->query($sql);
+        return $query->result();
+
+    }
+
+
+
     public function serie_score_android($id)
     {
         $this->db->select('serie_id');

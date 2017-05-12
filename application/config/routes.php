@@ -169,5 +169,6 @@ $route['android/movie/([0-9]+)'] = 'android/movie/$1';
 $route['android/serie/([0-9]+)'] = 'android/serie/$1';
 $route['android/season/([0-9]+)'] = 'android/season/$1';
 $route['android/search-movie/(.+)'] = 'android/search_movie/$1';
+$route['android/search-serie/(.+)'] = 'android/search_serie/$1';
 $route['android/categories'] = 'android/categorias';
 
