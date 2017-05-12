@@ -55,7 +55,7 @@
 
 h1#logo {
     position: absolute;
-    top: 10px;
+    top: -10px;
     left: 10px;
 }
 
@@ -178,7 +178,7 @@ ul.social li a{
 
     #main-nav {
         padding-left: 15px;
-        top: 60px;
+        top: 50px;
         bottom: 0;
         left: -15px;
         width: 0;

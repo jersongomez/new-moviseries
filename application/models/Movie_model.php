@@ -61,6 +61,22 @@ class Movie_model extends CI_Model
         return $query->result();  // this returns an object of all results
     }
 
+    public function get_movies_category_android($category, $limit, $offset)
+    {
+        $this->db->select('movie_id');
+        $this->db->from('movies_categories');
+        $this->db->where('category_name', $category);
+        $subQuery = $this->db->get_compiled_select();
+
+
+        $this->db->order_by('updated_at', 'desc');
+        $this->db->limit($limit, $offset);
+        $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
+        $this->db->where("`movie_id` IN ( $subQuery)", NULL, FALSE);
+        $query = $this->db->get('movies');
+        return $query->result();  // this returns an object of all results
+    }
+
 
     public function get_movies_category_limit_offset($category_name, $limit, $offset)
     {
@@ -112,8 +128,6 @@ class Movie_model extends CI_Model
             return null;
         }
     }
-
-
 
 
     public function movie_score_android($id)
@@ -207,6 +221,15 @@ class Movie_model extends CI_Model
     {
 
         return $this->db->update('movies', $data, array('movie_id' => $id));
+    }
+
+
+    public function search_movie($q)
+    {
+        $sql = "select m.movie_id,m.name,m.year,m.cover,m.trailer,m.short_description,m.created_at,m.updated_at from movies as m WHERE m.name LIKE '%" . $q . "%' or m.short_description LIKE '%" . $q . "%' ";
+        $query = $this->db->query($sql);
+        return $query->result();
+
     }
 
 

@@ -30,13 +30,13 @@
 
 
                                 <div class="row pl-3 pr-3">
-                                    <div class="col-5"
+                                    <div class="col-xs-5"
                                          style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                    <div class="col-2" style="padding: 0; margin: 0;">
+                                    <div class="col-xs-2" style="padding: 0; margin: 0;">
                                         <img src="/assets/img/ic_play_circle.png" alt=""
                                              style="100%; margin-left: auto; margin-right: auto;">
                                     </div>
-                                    <div class="col-5"
+                                    <div class="col-xs-5"
                                          style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                 </div>
 
@@ -123,7 +123,7 @@
                 <?php foreach ($temporadas as $tmp) { ?>
 
 
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 center-block mb-2">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 center-block mb-2">
                         <h5 style="background-color: #f52265; color: white; text-align: center; margin: 0;">
                             TEMPORADA <?php echo $tmp->number ?></h5>
                         <img src="<?php echo $tmp->cover ?>" width="100%">

@@ -23,13 +23,13 @@
                             </div>
 
 
-                            <div class="row pl-3 pr-3">
-                                <div class="col-5" style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                <div class="col-2" style="padding: 0; margin: 0;">
+                            <div class="row">
+                                <div class="col-xs-5" style="height: 1px; background-color: #fff; margin: auto;"></div>
+                                <div class="col-xs-2" style="padding: 0; margin: 0;">
                                     <img src="/assets/img/ic_play_circle.png" alt=""
                                          style="100%; margin-left: auto; margin-right: auto;">
                                 </div>
-                                <div class="col-5" style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
+                                <div class="col-xs-5" style="height: 1px; background-color: #fff; margin: auto"></div>
                             </div>
 
 
@@ -98,7 +98,7 @@
 
                 <div class="row">
                     <?php foreach ($best_movies as $movie) { ?>
-                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a class="shadow" href="<?php echo base_url('peliculas/' . $movie->movie_id) ?>">
@@ -114,13 +114,13 @@
 
 
                                         <div class="row pl-3 pr-3" style="margin-top: 30px;">
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                            <div class="col-2" style="padding: 0; margin: 0;">
+                                            <div class="col-xs-2" style="padding: 0; margin: 0;">
                                                 <img src="/assets/img/ic_play_circle.png" alt=""
                                                      style="100%; margin-left: auto; margin-right: auto;">
                                             </div>
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                         </div>
 
@@ -184,7 +184,7 @@
 
                 <div class="row">
                     <?php foreach ($best_series as $serie) { ?>
-                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem col-xl-2  col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a class="shadow" href="<?php echo base_url('series/' . $serie->serie_id) ?>">
@@ -200,13 +200,13 @@
 
 
                                         <div class="row pl-3 pr-3" style="margin-top: 30px;">
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                            <div class="col-2" style="padding: 0; margin: 0;">
+                                            <div class="col-xs-2" style="padding: 0; margin: 0;">
                                                 <img src="/assets/img/ic_play_circle.png" alt=""
                                                      style="100%; margin-left: auto; margin-right: auto;">
                                             </div>
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                         </div>
 
@@ -271,7 +271,7 @@
 
                 <div class="row">
                     <?php foreach ($last_series as $serie) { ?>
-                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a href="<?php echo base_url('series/' . $serie->serie_id) ?>">
@@ -287,13 +287,13 @@
 
 
                                         <div class="row pl-3 pr-3">
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                            <div class="col-2" style="padding: 0; margin: 0;">
+                                            <div class="col-xs-2" style="padding: 0; margin: 0;">
                                                 <img src="/assets/img/ic_play_circle.png" alt=""
                                                      style="100%; margin-left: auto; margin-right: auto;">
                                             </div>
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                         </div>
 
@@ -324,7 +324,7 @@
 
                 <div class="row">
                     <?php foreach ($last_seasons as $season) { ?>
-                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 4px solid #fff;">
+                        <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0" style="border: 4px solid #fff;">
 
 
                             <a href="<?php echo base_url('series/' . $season->serie_id) ?>">
@@ -340,13 +340,13 @@
 
 
                                         <div class="row pl-3 pr-3" style="margin-top: 30px;">
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                            <div class="col-2" style="padding: 0; margin: 0;">
+                                            <div class="col-xs-2" style="padding: 0; margin: 0;">
                                                 <img src="/assets/img/ic_play_circle.png" alt=""
                                                      style="100%; margin-left: auto; margin-right: auto;">
                                             </div>
-                                            <div class="col-5"
+                                            <div class="col-xs-5"
                                                  style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                         </div>
 

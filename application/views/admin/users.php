@@ -10,7 +10,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
 <h2 class="text-center" style="background-color: #E91E63; color: #fff; text-transform: uppercase;">Usuarios
     Moviseries</h2>
 <hr>
-<div class="container">
+<div class="container-fluid">
     <table id="data-table" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>

@@ -79,6 +79,22 @@ class Serie_model extends CI_Model
         return $query->result();
     }
 
+
+    public function get_series_category_android($category,$limit, $offset){
+        $this->db->select('serie_id');
+        $this->db->from('categories_series');
+        $this->db->where('category_name', $category);
+        $subQuery = $this->db->get_compiled_select();
+
+
+        $this->db->order_by('created_at', 'desc');
+        $this->db->limit($limit, $offset);
+        $this->db->select('serie_id,serie_name,year,cover,short_description,created_at');
+        $this->db->where("`serie_id` IN ( $subQuery)", NULL, FALSE);
+        $query = $this->db->get('series');
+        return $query->result();  // this returns an object of all results
+    }
+
     function getById($id)
     {
         $query = $this->db->query("SELECT * FROM series WHERE serie_id=$id");
@@ -114,6 +130,24 @@ class Serie_model extends CI_Model
         }
     }
 
+
+
+    public function serie_score_android($id)
+    {
+        $this->db->select('serie_id');
+        $this->db->from('series_score');
+        $this->db->where('serie_id', $id);
+        $num=$this->db->count_all_results();
+
+        $sql = "SELECT m.serie_id,m.serie_name,m.year,m.cover,m.short_description,m.created_at, COALESCE((SELECT AVG(ms.score) FROM series_score as ms WHERE serie_id=m.serie_id),0) score, $num votos from series as m WHERE m.serie_id=$id";
+        $query = $this->db->query($sql);
+        $res = $query->result();  // this returns an object of all results
+        if ($res) {
+            return $res[0];
+        } else {
+            return null;
+        }
+    }
 
     public function insert($data)
     {

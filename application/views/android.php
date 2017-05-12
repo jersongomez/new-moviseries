@@ -31,7 +31,7 @@
 
     <div class="text-center">
         <p>Recuerda Moviseries no se responsabiliza por el mal uso que le des al contenido de nuestra web o app.</p><br>
-        <a class="btn btn-primary btn-lg active" href="#"><i class="icon-download"></i> DESCARGAR APLICACIÓN</a>
+        <a class="btn btn-primary btn-lg active" href="<?php echo base_url('assets/apps/moviseries.apk') ?>"><i class="icon-download"></i> DESCARGAR APLICACIÓN</a>
     </div>
     <hr>
 

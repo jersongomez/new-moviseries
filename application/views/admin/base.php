@@ -65,81 +65,86 @@ $_SESSION['token'] = $token;
 </head>
 <body>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse" style="background: #0099aa;  -webkit-box-shadow: -1px 8px 13px -2px rgba(4, 99, 110, 1);
-    -moz-box-shadow: -1px 8px 13px -2px rgba(4, 99, 110, 1);
-    box-shadow: -1px 8px 13px -2px rgba(4, 99, 110, 1);
-    margin-bottom: 10px;">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" width="60"></a>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url() ?>" style="color: #fff;">Web</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a style="color: #fff;" class="nav-link dropdown-toggle" href="http://moviseries.xyz"
-                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Peliculas
-                </a>
+<nav class="navbar navbar-inverse" style="background-color: rgba(4, 99, 110, 1)">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="/assets/img/logo.png" width="60" style="margin-top: -10px;"></a>
+        </div>
 
-                <div class="dropdown-menu ndropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('admin/nueva-pelicula') ?>">Nueva Pelicula</a>
-                    <a class="dropdown-item" href="<?php echo base_url('admin/peliculas') ?>">Lista de peliculas</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://moviseries.xyz" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                    Series
-                </a>
-
-                <div class="dropdown-menu ndropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo base_url('admin/nueva-serie') ?>">Nueva Serie</a>
-                    <a class="dropdown-item" href="<?php echo base_url('admin/series') ?>">Lista de series</a>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/categorias') ?>"
-                   style="color: #fff;">Generos</span></a>
-            </li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="nav-link" href="<?php echo base_url() ?>" style="color: #fff;">Web</span></a>
+                </li>
 
 
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/users') ?>"
-                   style="color: #fff;">Usuarios</span></a>
-            </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Peliculas <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<?php echo base_url('admin/nueva-pelicula') ?>">Nueva
+                                Pelicula</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('admin/peliculas') ?>">Lista de
+                                peliculas</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Series <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<?php echo base_url('admin/nueva-serie') ?>">Nueva Serie</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('admin/series') ?>">Lista de series</a></li>
+
+                    </ul>
+                </li>
 
 
-        </ul>
 
 
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown pull-xs-right">
-                <a class="nav-link dropdown-toggle" href="http://moviseries.xyz" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-                    <i class="icon-user"></i> <?php echo $_SESSION['username'] ?>
-                </a>
-
-                <div class="dropdown-menu ndropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#"><i class="icon-desktop"></i> Mi cuenta</a>
-                    <a class="dropdown-item" href="#"><i class="icon-cog"></i> Ajustes</a>
-                    <a class="dropdown-item" href="<?php echo base_url('logout') ?>"><i class="icon-logout"></i> Cerrar
-                        Sesión</a>
-                </div>
-            </li>
-
-        </ul>
+                <li >
+                    <a  href="<?php echo base_url('admin/categorias') ?>"
+                       style="color: #fff;">Generos</span></a>
+                </li>
 
 
-    </div>
+                <li>
+                    <a href="<?php echo base_url('admin/users') ?>"
+                       style="color: #fff;">Usuarios</span></a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Administrador <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="icon-desktop"></i> Mi cuenta</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="icon-cog"></i> Ajustes</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url('logout') ?>"><i class="icon-logout"></i> Cerrar
+                                Sesión</a></li>
+
+
+
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
+
 
 
 <?php startblock('main-content') ?><?php endblock() ?>

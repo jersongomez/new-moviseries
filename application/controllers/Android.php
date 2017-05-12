@@ -56,9 +56,9 @@ class Android extends CI_Controller
     }
 
 
-    function last_movies($limit,$offset)
+    function last_movies($limit, $offset)
     {
-        $movies = $this->Movie_model->get_last_movies_android($limit,$offset);
+        $movies = $this->Movie_model->get_last_movies_android($limit, $offset);
         $mmovies = array();
         foreach ($movies as $movie) {
             $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
@@ -70,26 +70,56 @@ class Android extends CI_Controller
         echo json_encode($mmovies);
     }
 
-    function last_series($limit,$offset)
+
+    function movies_category($category, $limit, $offset)
     {
-        $series = $this->Serie_model->get_last_series_android($limit,$offset);
+        $movies = $this->Movie_model->get_movies_category_android(urldecode($category), $limit, $offset);
+        $mmovies = array();
+        foreach ($movies as $movie) {
+            $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
+            $query = $this->db->query($sql_qualities_movie);
+            $qualities = $query->result();
+            $mmovies[] = array('movie' => $movie, 'qualities' => $qualities);
+        }
+
+        echo json_encode($mmovies);
+    }
+
+
+    function series_category($category, $limit, $offset)
+    {
+        $series = $this->Serie_model->get_series_category_android(urldecode($category), $limit, $offset);
+
         echo json_encode($series);
     }
 
 
+    function last_series($limit, $offset)
+    {
+        $series = $this->Serie_model->get_last_series_android($limit, $offset);
+        echo json_encode($series);
+    }
 
-    function last_seasons(){
+
+    function last_seasons()
+    {
         $seasons = $this->Temporada_model->get_last_android(20);
 
         echo json_encode($seasons);
     }
 
 
-    function top_movies(){
+    public function season($id)
+    {
+        $capitulos = $this->Temporada_model->get_capitulos_temporada($id);
+        echo json_encode($capitulos);
+    }
+
+    function top_movies()
+    {
         $bmovies = $this->Movie_model->get_movies_by_score_android(20);
         echo json_encode($bmovies);
     }
-
 
 
     public function movie($id)
@@ -103,6 +133,43 @@ class Android extends CI_Controller
         } else {
 
         }
+    }
+
+
+    public function serie($id)
+    {
+        $serie = $this->Serie_model->serie_score_android($id);
+
+        if ($serie) {
+            $temporadas = $this->Temporada_model->get_temporadas_serie($id);
+            $mega_urls = $this->Url_model->getUrlsMEGABySerie($id);
+            echo json_encode(['serie' => $serie, 'seasons' => $temporadas, 'mega_urls' => $mega_urls]);
+        } else {
+
+        }
+    }
+
+
+    public function categorias()
+    {
+        $categories = $this->Category_model->getCategories();
+        echo json_encode($categories);
+    }
+
+
+    public function search_movie($q)
+    {
+
+        $movies = $this->Movie_model->search_movie(rawurldecode($q));
+        $mmovies = array();
+        foreach ($movies as $movie) {
+            $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
+            $query = $this->db->query($sql_qualities_movie);
+            $qualities = $query->result();
+            $mmovies[] = array('movie' => $movie, 'qualities' => $qualities);
+        }
+
+        echo json_encode($mmovies);
     }
 
 }

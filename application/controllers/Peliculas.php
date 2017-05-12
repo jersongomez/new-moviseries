@@ -20,7 +20,7 @@ class Peliculas extends CI_Controller
     {
         $categories = $this->Category_model->getCategories();
         $total = $this->Movie_model->count();
-        $limit = 24;
+        $limit = 30;
 
         $config['base_url'] = base_url('peliculas/');
         $config['total_rows'] = $total;
@@ -86,7 +86,7 @@ class Peliculas extends CI_Controller
     {
         $id = urldecode($id);
         $total = $this->Movie_model->count_by_categoty($id);
-        $limit = 24;
+        $limit = 30;
 
         $config['base_url'] = base_url('peliculas/categoria/' . $id) . '/';
         $config['total_rows'] = $total;

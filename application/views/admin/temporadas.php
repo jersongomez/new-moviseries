@@ -10,7 +10,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
 <h2 class="text-center" style="background-color: #E91E63; color: #fff; padding: 5px; ">
     temporadas <?php echo $serie->serie_name ?> </h2>
 <hr>
-<div class="container">
+<div class="container-fluid">
 
     <div class="text-lg-left">
         <a class="btn btn-info active" href="<?php echo base_url('admin/series') ?>"><i class="icon-left"></i> Volver

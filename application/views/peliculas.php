@@ -12,15 +12,15 @@ Moviseries peliculas
 <?php startblock('main-content') ?>
 
 <div class="container-fluid" style="overflow-x: hidden; overflow-y: hidden;">
-    <div class="row pt-2 pb-2">
+    <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
         <div class="col-lg-2 col-md-3" style="padding-left: 3px; margin-bottom: 10px; padding-right: 2px;">
-            <ul class="list-group card" id="categorias">
+            <ul class="list-group" id="categorias">
                 <li class="list-group-item"
                     style="background-color: #f40f4b; color: #fff; font-weight: bold;"><a href="<?php echo base_url('peliculas') ?>" style="color: white;">CATEGORIAS</a>
                 </li>
                 <?php foreach ($categorias as $cat) { ?>
                     <li id="category-<?php echo str_replace("+", "-", urlencode($cat->category_name)) ?>"
-                        class="list-group-item hvr-rectangle-out"><a style="display:inline-block;
+                        class="list-group-item"><a style="display:inline-block;
 width: 100%;"
                                                                      href="<?php echo base_url('peliculas/categoria/' . urlencode($cat->category_name)) ?>"> <?php echo $cat->category_name ?>
                         </a></li>
@@ -30,7 +30,7 @@ width: 100%;"
         <div class="col-lg-10 col-md-9  pl-3 pt-1 pr-3 mr-0 ml-0">
             <div class="row regular">
                 <?php foreach ($movies as $movie) { ?>
-                    <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-6 p-0" style="border: 3px solid #fff;">
+                    <div class="mitem  col-lg-2 col-md-4 col-sm-6 col-xs-6 p-0" style="border: 3px solid #fff;">
 
                         <a href="<?php echo base_url('peliculas/' . $movie['movie']->movie_id) ?>">
                             <div class="play hvr-sweep-to-right">
@@ -45,13 +45,13 @@ width: 100%;"
 
 
                                     <div class="row pl-3 pr-3">
-                                        <div class="col-5"
+                                        <div class="col-xs-5"
                                              style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
-                                        <div class="col-2" style="padding: 0; margin: 0;">
+                                        <div class="col-xs-2" style="padding: 0; margin: 0;">
                                             <img src="/assets/img/ic_play_circle.png" alt=""
                                                  style="100%; margin-left: auto; margin-right: auto;">
                                         </div>
-                                        <div class="col-5"
+                                        <div class="col-xs-5"
                                              style="height: 1px; background-color: #fff; margin: auto 0px;"></div>
                                     </div>
 

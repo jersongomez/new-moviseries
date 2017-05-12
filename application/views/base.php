@@ -14,7 +14,6 @@ $_SESSION['token'] = $token;
     <link rel="icon" href="/assets/img/logo.png">
 
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/css/material.css">
     <link rel="stylesheet" href="/assets/css/fontello.css">
     <link rel="stylesheet" href="/assets/css/animation.css">
     <link rel="stylesheet" href="/assets/css/ap-fullscreen-modal.css">
@@ -59,6 +58,12 @@ $_SESSION['token'] = $token;
             width: 15px;
             border-left: 1px solid #FFD6C8;
             visibility: visible;
+        }
+
+
+        .list-group-item:hover {
+            color: white;
+            background-color: #0000ee;
         }
 
         .list-group-item:hover a {
@@ -163,7 +168,7 @@ $_SESSION['token'] = $token;
 <div style="background-color: #1A237E; ">
     <!-- Header -->
     <div id="header" class="container-fluid">
-        <h1 id="logo" class="pl-2"><img src="/assets/img/logo.png" alt="" width="100"></h1>
+        <h1 id="logo"><img src="/assets/img/logo.png" alt="" width="90"></h1>
 
         <button class="nav-toggle"><i class="icon-th-large-outline"></i></button>
 
@@ -189,7 +194,8 @@ $_SESSION['token'] = $token;
 
                     <div style="display: none;">
                         <div id="modal-login" class="">
-                            <div class="p-5 offset-lg-3 col-lg-6  offset-md-1 col-md-10">
+                            <div class="col-md-3"></div>
+                            <div class="p-5 col-md-6" style="margin-top: 50px;">
 
                                 <!-- Begin # DIV Form -->
                                 <div id="div-forms">
@@ -426,7 +432,7 @@ $_SESSION['token'] = $token;
 </div>
 <div class="clearfix"></div>
 
-<div id="main-content" class="container-fluid" style="background-color: white; padding-top: 75px;">
+<div id="main-content" class="container-fluid" style="background-color: white; padding-top: 50px;">
     <?php startblock('main-content') ?><?php endblock() ?>
 </div>
 
@@ -439,11 +445,11 @@ $_SESSION['token'] = $token;
 
             <form action="<?php echo base_url('busqueda') ?>" method="get">
                 <div class="row pl-3">
-                    <div class="col-10 p-0">
+                    <div class="col-xs-10 p-0">
                         <input id="input-search" type="text" name="query" class="form-control"
                                placeholder="buscar pelicula o serie ...">
                     </div>
-                    <div class="col-2 p-0 mr-0">
+                    <div class="col-xs-2 p-0 mr-0">
                         <button type="submit" class="btn btn-primary"><i class="icon-search-1"></i></button>
                     </div>
                 </div>
@@ -519,14 +525,13 @@ $_SESSION['token'] = $token;
 
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/bootstrap.js"></script>
-<script src="/assets/js/material.js"></script>
 <script src="/assets/js/plyr.js"></script>
 <script src="/assets/js/ap-fullscreen-modal.js"></script>
 <script src="/assets/slick/slick.js"></script>
 <script src="/assets/js/tinynav.js"></script>
-
 <script src="/assets/mis_js/custom_functions.js"></script>
 <script src="/assets/mis_js/main.js"></script>
+
 
 <?php startblock('scripts') ?><?php endblock() ?>
 </body>

@@ -20,7 +20,7 @@ class Series extends CI_Controller
     public function index()
     {
         $categories = $this->Category_model->getCategories();
-        $limit = 24;
+        $limit = 30;
 
         $config['base_url'] = base_url('series/');
         $config['total_rows'] = $this->Serie_model->count();
@@ -78,7 +78,7 @@ class Series extends CI_Controller
     {
 
         $id = urldecode($id);
-        $limit = 24;
+        $limit = 30;
         $config['base_url'] = base_url('series/categoria/' . $id) . '/';
         $config['total_rows'] = $this->Serie_model->count_by_categoty($id);
         $config['per_page'] = $limit;
