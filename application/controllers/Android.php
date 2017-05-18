@@ -71,9 +71,39 @@ class Android extends CI_Controller
     }
 
 
+     function last_movies_letra($limit, $offset,$letra)
+    {
+        $movies = $this->Movie_model->get_last_movies_android_letra($limit, $offset,$letra);
+        $mmovies = array();
+        foreach ($movies as $movie) {
+            $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
+            $query = $this->db->query($sql_qualities_movie);
+            $qualities = $query->result();
+            $mmovies[] = array('movie' => $movie, 'qualities' => $qualities);
+        }
+
+        echo json_encode($mmovies);
+    }
+
+
     function movies_category($category, $limit, $offset)
     {
         $movies = $this->Movie_model->get_movies_category_android(urldecode($category), $limit, $offset);
+        $mmovies = array();
+        foreach ($movies as $movie) {
+            $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
+            $query = $this->db->query($sql_qualities_movie);
+            $qualities = $query->result();
+            $mmovies[] = array('movie' => $movie, 'qualities' => $qualities);
+        }
+
+        echo json_encode($mmovies);
+    }
+
+
+     function movies_category_android($category, $limit, $offset,$letra)
+    {
+        $movies = $this->Movie_model->get_movies_category_android_letra(urldecode($category), $limit, $offset,$letra);
         $mmovies = array();
         foreach ($movies as $movie) {
             $sql_qualities_movie = "select DISTINCT u.quality from movies_urls as mu, urls as u WHERE mu.movie_id=$movie->movie_id and mu.url_id=u.url_id";
@@ -93,12 +123,27 @@ class Android extends CI_Controller
         echo json_encode($series);
     }
 
+    function series_category_letra($category, $limit, $offset,$letra)
+    {
+        $series = $this->Serie_model->get_series_category_android_letra(urldecode($category), $limit, $offset,$letra);
+
+        echo json_encode($series);
+    }
+
 
     function last_series($limit, $offset)
     {
         $series = $this->Serie_model->get_last_series_android($limit, $offset);
         echo json_encode($series);
     }
+
+
+    function last_series_letra($limit, $offset,$letra)
+    {
+        $series = $this->Serie_model->get_last_series_android_letra($limit, $offset,$letra);
+        echo json_encode($series);
+    }
+
 
 
     function last_seasons()

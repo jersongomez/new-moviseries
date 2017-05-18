@@ -160,9 +160,13 @@ $route['admin/editar-pelicula/([0-9]+)'] = 'admin/peliculas/editar_pelicula/$1';
 //android
 $route['android/login'] = 'android/login';
 $route['android/last-movies/([0-9]+)/([0-9]+)'] = 'android/last_movies/$1/$2';
+$route['android/last-movies/([0-9]+)/([0-9]+)/(.+)'] = 'android/last_movies_letra/$1/$2/$3';
 $route['android/movies/category/(.+)/limit_offset/([0-9]+)/([0-9]+)'] = 'android/movies_category/$1/$2/$3';
+$route['android/movies/category/(.+)/limit_offset/([0-9]+)/([0-9]+)/letra/(.+)'] = 'android/movies_category_letra/$1/$2/$3/$4';
 $route['android/series/category/(.+)/limit_offset/([0-9]+)/([0-9]+)'] = 'android/series_category/$1/$2/$3';
+$route['android/series/category/(.+)/limit_offset/([0-9]+)/([0-9]+)/letra/(.+)'] = 'android/series_category_letra/$1/$2/$3/$4';
 $route['android/last-series/([0-9]+)/([0-9]+)'] = 'android/last_series/$1/$2';
+$route['android/last-series/([0-9]+)/([0-9]+)/(.+)'] = 'android/last_series_letra/$1/$2/$3';
 $route['android/last-seasons'] = 'android/last_seasons';
 $route['android/top-movies'] = 'android/top_movies';
 $route['android/movie/([0-9]+)'] = 'android/movie/$1';

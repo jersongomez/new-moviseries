@@ -30,12 +30,23 @@ class Movie_model extends CI_Model
     }
 
 
+    public function get_movies_limit_offset_letra($limit, $offset,$letra)
+    {
+        $this->db->order_by('updated_at', 'desc');
+        $this->db->like('name', $letra, 'after');
+        $query = $this->db->get('movies', $limit, $offset);
+        return $query->result();
+    }
+
+
+
     public function get_movies_limit_offset($limit, $offset)
     {
         $this->db->order_by('updated_at', 'desc');
         $query = $this->db->get('movies', $limit, $offset);
         return $query->result();
     }
+
 
     public function get_last_movies()
     {
@@ -54,6 +65,16 @@ class Movie_model extends CI_Model
         return $query->result();
     }
 
+    
+    public function get_last_movies_android_letra($limit, $offset,$letra)
+    {
+        $this->db->order_by("updated_at", "desc");
+        $this->db->like('name', $letra, 'after');
+        $this->db->limit($limit, $offset);
+        $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
+        $query = $this->db->get('movies');
+        return $query->result();
+    }
 
     public function get_movies_category($category_name)
     {
@@ -76,6 +97,25 @@ class Movie_model extends CI_Model
         $query = $this->db->get('movies');
         return $query->result();  // this returns an object of all results
     }
+
+
+    public function get_movies_category_android_letra($category, $limit, $offset,$letra)
+    {
+        $this->db->select('movie_id');
+        $this->db->from('movies_categories');
+        $this->db->where('category_name', $category);
+        $subQuery = $this->db->get_compiled_select();
+
+
+        $this->db->order_by('updated_at', 'desc');
+        $this->db->like('name', $letra, 'after');
+        $this->db->limit($limit, $offset);
+        $this->db->select('movie_id,name,year,cover,trailer,short_description,created_at,updated_at');
+        $this->db->where("`movie_id` IN ( $subQuery)", NULL, FALSE);
+        $query = $this->db->get('movies');
+        return $query->result();  // this returns an object of all results
+    }
+
 
 
     public function get_movies_category_limit_offset($category_name, $limit, $offset)

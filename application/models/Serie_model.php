@@ -80,6 +80,17 @@ class Serie_model extends CI_Model
     }
 
 
+     public function get_last_series_android_letra($limit, $offset,$letra)
+    {
+        $this->db->order_by("created_at", "desc");
+        $this->db->like('serie_name', $letra, 'after');
+        $this->db->limit($limit, $offset);
+        $this->db->select('serie_id,serie_name,year,cover,short_description,created_at');
+        $query = $this->db->get($this->table,$limit);
+        return $query->result();
+    }
+
+
     public function get_series_category_android($category,$limit, $offset){
         $this->db->select('serie_id');
         $this->db->from('categories_series');
@@ -94,6 +105,25 @@ class Serie_model extends CI_Model
         $query = $this->db->get('series');
         return $query->result();  // this returns an object of all results
     }
+
+
+
+    public function get_series_category_android_letra($category,$limit, $offset,$letra){
+        $this->db->select('serie_id');
+        $this->db->from('categories_series');
+        $this->db->where('category_name', $category);
+        $subQuery = $this->db->get_compiled_select();
+
+
+        $this->db->order_by('created_at', 'desc');
+        $this->db->like('serie_name', $letra, 'after');
+        $this->db->limit($limit, $offset);
+        $this->db->select('serie_id,serie_name,year,cover,short_description,created_at');
+        $this->db->where("`serie_id` IN ( $subQuery)", NULL, FALSE);
+        $query = $this->db->get('series');
+        return $query->result();  // this returns an object of all results
+    }
+
 
     function getById($id)
     {

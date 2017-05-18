@@ -57,17 +57,17 @@ $token = password_hash("token", PASSWORD_DEFAULT);
 
 
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-xs-4">
                                     <label># de temporada: </label>
                                     <input id="input-number" required type="number" name="number" class="form-control"
                                            value="1">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-xs-4">
                                     <label>Trailer ID: </label>
                                     <input id="input-trailer" type="text" class="form-control"
                                            placeholder="Youtube videoID">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-xs-4">
                                     <label>Imagen de portada</label>
                                     <button type="button" class="btn btn-link w-100" href="#modallogo"
                                             data-toggle="modal"><i
@@ -81,7 +81,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                             <br>
 
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-xs-12">
                                     <label>palabras clave: </label>
                                     <input id="key_words" required type="text" class="form-control"
                                     >

@@ -11,7 +11,7 @@
     <h2 class="text-center">¿Sabias que Moviseries también esta disponible para ANDROID?</h2>
     <hr>
     <p>Nuestra misión es ir mucho más alla de la web por eso traemos para ti nuestra aplicación oficial para
-    dispositivos android con la cual podras ver todo el contenido de moviseries desde cualquier lugar.</p>
+        dispositivos android con la cual podras ver todo el contenido de moviseries desde cualquier lugar.</p>
 
     <h3>REQUISITOS DE LA APLICACIÓN</h3>
     <ul>
@@ -29,9 +29,37 @@
     </ul>
     <hr>
 
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" style="margin-bottom: 10px">
+            <img src="/assets/img/app1.png" alt="moviseries app" width="100%">
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" style="margin-bottom: 10px">
+            <img src="/assets/img/app2.png" alt="moviseries app" width="100%">
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" style="margin-bottom: 10px">
+            <img src="/assets/img/app3.png" alt="moviseries app" width="100%">
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" style="margin-bottom: 10px">
+            <img src="/assets/img/app4.png" alt="moviseries app" width="100%">
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" style="margin-bottom: 10px">
+            <img src="/assets/img/app5.png" alt="moviseries app" width="100%">
+        </div>
+    </div>
+
+    <hr>
+
     <div class="text-center">
         <p>Recuerda Moviseries no se responsabiliza por el mal uso que le des al contenido de nuestra web o app.</p><br>
-        <a class="btn btn-primary btn-lg active" href="<?php echo base_url('assets/apps/moviseries.apk') ?>"><i class="icon-download"></i> DESCARGAR APLICACIÓN</a>
+        <a class="btn btn-primary btn-lg active" href="<?php echo base_url('assets/apps/moviseries.apk') ?>"><i
+                class="icon-download"></i> DESCARGAR APLICACIÓN</a>
     </div>
     <hr>
 

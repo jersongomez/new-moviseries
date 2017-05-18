@@ -11,7 +11,7 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-lg-2 regular hidden-sm-down">
+        <div class="col-lg-2 col-md-3 regular hidden-sm hidden-xs" style="margin-top: 15px">
             <h6 class="text-center"
                 style="margin-top: 5px; background-color: #1d1d80; color: #fff; padding: 5px; margin-bottom: 0; ">
                 ULTIMAS SERIES</h6>
@@ -59,13 +59,13 @@
             <?php } ?>
         </div>
 
-        <div class="col-lg-10 col-sm-12">
+        <div class="col-lg-10 col-md-9 col-sm-12">
             <h2 class="text-center"
                 style="background-color: #E91E63; color: #fff; padding: 5px; margin-bottom: 0; "><?php echo $serie->serie_name ?>
                 - (<?php echo $serie->year ?>)</h2>
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-sm-4">
 
 
                     <img width="100%" src="<?php echo $serie->cover ?>" alt=" <?php echo $serie->serie_name ?>">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-8">
                     <?php echo $serie->description; ?>
 
 
@@ -132,7 +132,8 @@
                                 class="icon-list"></i> EPISODIOS
                         </button>
                         <button type="button" class="btn btn-sm btn-danger w-100 play-trailer"
-                                onclick="play_trailer('<?php echo $tmp->trailer ?>',<?php echo $tmp->number ?>)"><i class="icon-youtube-play"></i>
+                                onclick="play_trailer('<?php echo $tmp->trailer ?>',<?php echo $tmp->number ?>)"><i
+                                class="icon-youtube-play"></i>
                             TRAILER
                         </button>
                     </div>
@@ -214,7 +215,6 @@
         </div>
     </div>
 </div>
-
 
 
 <div style="display: none;" style="background-color: #15154d;">
@@ -316,8 +316,6 @@ if (isset($_SESSION['username'])) {
     $(function () {
 
 
-
-
         $('#modal-temporada').apFullscreenModal({
             openSelector: '.play-temporada'
         });
@@ -370,8 +368,11 @@ if (isset($_SESSION['username'])) {
             html = '<iframe src="https://stream.moe/embed2/' + fileID + '/" frameborder="0" scrolling="no" height="' + altura_video + '"style="overflow: hidden; width: 100%;" webkitAllowFullScreen="true" mozallowfullscreen="true" allowFullScreen="true"></iframe>';
         } else if (server === 'google drive') {
             html = '<iframe src="https://drive.google.com/file/d/' + fileID + '/preview" style="width: 70%;" height="' + altura_video + '"></iframe>';
+        } else if (server === 'rapidvideo') {
+            html = '<iframe src="https://www.rapidvideo.com/e/' + fileID + '" style="width: 70%;" height="' + altura_video + '" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" marginwidth=0 marginheight=0></iframe>';
+        } else if (server === 'nowvideo') {
+            html = '<iframe src="//www.nowvideo.sx/embed/?v=' + fileID + '" style="width: 70%;" height="' + altura_video + '" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" marginwidth=0 marginheight=0></iframe>';
         }
-
         $('#titulo-video').html('<?php echo $serie->serie_name ?>: Temporada ' + temp + ' - episodio #' + capNumer + ' ' + capName);
         $('#video-content').html(html);
 
@@ -379,15 +380,13 @@ if (isset($_SESSION['username'])) {
     }
 
 
-
-
-    function play_trailer(ID,number) {
+    function play_trailer(ID, number) {
 
         var html = '';
 
         var altura_video = $(window).height() - $('#titulo-video').height() - 20;
 
-        html='<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="//www.youtube.com/embed/'+ID+'" allowfullscreen></iframe></div>';
+        html = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="//www.youtube.com/embed/' + ID + '" allowfullscreen></iframe></div>';
 
 
         $('#titulo-trailer').html('<?php echo $serie->serie_name ?>: Trailer Temporada ' + number);
@@ -395,7 +394,6 @@ if (isset($_SESSION['username'])) {
 
 
     }
-
 
 
     function play_temporada(ID, number) {

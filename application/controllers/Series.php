@@ -156,7 +156,7 @@ class Series extends CI_Controller
         $capitulos = $this->Temporada_model->get_capitulos_temporada($id);
 
 
-        echo "<table class=\"table\" style=\"-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
+        echo "<div class=' table-responsive'><table class=\"table\" style=\"-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);\">
                         <thead class=\"table-inverse\" style=\"background-color: #E91E63;\">
@@ -198,6 +198,10 @@ if ($cap->server == 'openload') {
     $urld="https://stream.moe/$cap->file_id";
 } else if ($cap->server == 'google drive') {
     $urld="https://drive.google.com/file/d/$cap->file_id/view";
+} else if ($cap->server == 'rapidvideo') {
+    $urld="https://www.rapidvideo.com/v/$cap->file_id";
+} else if ($cap->server == 'nowvideo') {
+   $urld="https://www.nowvideo.sx/mobile/video.php?id=$cap->file_id";
 }
 
 
@@ -219,7 +223,7 @@ if ($cap->server == 'openload') {
 
         }
 
-        echo "</table>";
+        echo "</table></div>";
 
 
     }

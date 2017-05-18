@@ -40,7 +40,7 @@ class Users extends CI_Controller
                 //en caso de que la validación sea correcta cogemos las variables y las envíamos
                 //al modelo
             } else {
-                $token = bin2hex(random_bytes(20));
+                $token = md5(uniqid(rand(), true));
                 $username = $this->input->post("username");
                 $email = $this->input->post("email");
                 $password = password_hash($this->input->post("password"), PASSWORD_DEFAULT);

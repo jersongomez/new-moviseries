@@ -55,7 +55,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
 
 
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-xs-4">
                                     <select class="form-control w-100" name="idioma" id="">
                                         <option value="latino">latino</option>
                                         <option value="castellano">castellano</option>
@@ -64,7 +64,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                                     </select>
 
                                 </div>
-                                <div class="col-4">
+                                <div class="col-xs-4">
 
 
                                     <select class="form-control w-100" name="calidad" id="">
@@ -76,13 +76,15 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                                     </select>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-xs-4">
 
 
                                     <select class="form-control w-100" name="servidor" id="">
                                         <option value="stream.moe">Streammoe</option>
                                         <option value="openload">Openload</option>
+                                        <option value="rapidvideo">RapidVideo</option>
                                         <option value="google drive">Google Drive</option>
+                                        <option value="nowvideo">nowvideo</option>
                                     </select>
                                 </div>
                             </div>

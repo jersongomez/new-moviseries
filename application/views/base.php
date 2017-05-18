@@ -86,6 +86,7 @@ $_SESSION['token'] = $token;
 
 
         .modal-titlem{
+            margin-top: 0;
             padding: 6px; height: 80px; line-height: 2.7; background-color: #f40f4b; color: white;
         }
 
@@ -177,7 +178,7 @@ $_SESSION['token'] = $token;
         <div id="navigation">
 
 
-            <ul class="hidden-md-down" style="float: left;">
+            <ul class="hidden-sm hidden-xs" style="float: left;">
                 <li><a target="_blank" href="https://www.facebook.com/Moviseries-1899211867018896/"><i
                             class="icon-facebook"></i></a></li>
                 <li><a target="_blank" href="https://plus.google.com/113692407905589602086"><i class="icon-google"></i></a></li>
@@ -229,13 +230,13 @@ $_SESSION['token'] = $token;
                                             <label for="login_passwor">Contraseña</label>
 
                                             <div class="row">
-                                                <div class="col-sm-10 col-9 pr-0">
+                                                <div class="col-sm-10 col-xs-9 pr-0">
                                                     <input name="password" id="login_password"
                                                            class="form-control"
                                                            type="password"
                                                            placeholder="Contraseña" required>
                                                 </div>
-                                                <div class="col-sm-2  col-3 pl-0">
+                                                <div class="col-sm-2  col-xs-3 pl-0">
                                                     <button onclick="show_password('login_password')"
                                                             class="btn btn-block" type="button"><i
                                                             class="icon-eye-1 icon-show-pass"></i></button>
@@ -346,13 +347,13 @@ $_SESSION['token'] = $token;
                                             <label for="">Contraseña:</label>
 
                                             <div class="row">
-                                                <div class="col-sm-10 col-9 pr-0">
+                                                <div class="col-sm-10 col-xs-9 pr-0">
                                                     <input name="password" id="register_password"
                                                            class="form-control"
                                                            type="password"
                                                            placeholder="Contraseña" required>
                                                 </div>
-                                                <div class="col-sm-2  col-3 pl-0">
+                                                <div class="col-sm-2  col-xs-3 pl-0">
                                                     <button onclick="show_password('register_password')"
                                                             class="btn btn-block" type="button"><i
                                                             class="icon-eye-1 icon-show-pass"></i></button>

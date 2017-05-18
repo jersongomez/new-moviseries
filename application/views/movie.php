@@ -13,8 +13,9 @@
     <h2 class="text-center"
         style="background-color: #E91E63; color: #fff; padding: 5px; margin-bottom: 0; "><?php echo $movie->name ?>
         <br>(<?php echo $movie->year ?>)</h2>
+
     <div class="row p-2">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4">
 
 
             <img width="100%" src="<?php echo $movie->cover ?>" alt=" <?php echo $movie->name ?>">
@@ -61,7 +62,7 @@
 
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-8">
             <?php echo $movie->description; ?>
 
 
@@ -69,9 +70,9 @@
                 TRAILER</h2>
 
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo $movie->trailer ?>?rel=0" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item" src="//www.youtube.com/embed/<?php echo $movie->trailer ?>?rel=0"
+                        allowfullscreen></iframe>
             </div>
-
 
 
         </div>
@@ -79,11 +80,12 @@
         <div class="col-12"><br>
 
             <h3>Enlaces: </h3>
+
             <div class="row table-responsive">
                 <table class="table" style="-webkit-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75);
 box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
-                    <thead  class="table-inverse" style="background-color: #E91E63; ">
+                    <thead style="background-color: #E91E63; ">
                     <tr class="text-center">
                         <th class="text-center" style="color: white">Audio</th>
                         <th class="text-center" style="color: white">Calidad</th>
@@ -96,9 +98,10 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                     </thead>
                     <?php foreach ($urls as $url) { ?>
                         <tr class="text-center" style="background-color: #f2f2f2;">
-                            <th class="text-center" scope="row"><?php echo $url->language_name ?></th>
-                            <th class="text-center" scope="row"><?php echo $url->quality ?></th>
-                            <th class="text-center" scope="row"><?php echo $url->server ?></th>
+                            <th class="text-center" scope="row"
+                                style="color: #0000ee;"><?php echo $url->language_name ?></th>
+                            <th class="text-center" scope="row" style="color: #0000ee;"><?php echo $url->quality ?></th>
+                            <th class="text-center" scope="row" style="color: #0000ee;"><?php echo $url->server ?></th>
                             <th class="text-center" scope="row">
                                 <button class="btn btn-sm btn-primary play-video"
                                         onclick="play_video('<?php echo $url->file_id ?>','<?php echo $url->server ?>')">
@@ -125,11 +128,27 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                                     ><i class="icon-download"></i>
                                         DESCARGAR
                                     </a>
+                                <?php } else if ($url->server == 'rapidvideo') { ?>
+                                    <a class="btn-sm  btn btn-info active w-100"
+                                       href="javascript;"
+                                    ><i class="icon-download"></i>
+                                        NO DISPONIBLE
+                                    </a>
+
+
+                                <?php } else if ($url->server == 'nowvideo') { ?>
+                                    <a class="btn-sm  btn btn-info active w-100"
+                                       href="https://www.nowvideo.sx/mobile/video.php?=id=<?php echo $url->file_id ?>"
+                                    ><i class="icon-download"></i>
+                                        DESCARGAR
+                                    </a>
                                 <?php } ?>
+
                             </th>
 
                             <th class="text-center" scope="row">
-                                <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('PELICULA: '.$movie->name.' - calidad  '.$url->quality).'&url_id='.$url->url_id) ?>">REPORTAR</a>
+                                <a target="_blank" class="btn btn-secondary"
+                                   href="<?php echo base_url('enlace-caido?msg=' . urlencode('PELICULA: ' . $movie->name . ' - calidad  ' . $url->quality) . '&url_id=' . $url->url_id) ?>">REPORTAR</a>
                             </th>
 
 
@@ -146,13 +165,18 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
                         <b>Solo nuestros usuarios premium pueden ver los enlaces</b>
                     </div>
                 <?php } else {
-                    foreach ($mega_urls as $mega) {?>
+                    foreach ($mega_urls as $mega) { ?>
                         <div class="p-4 text-center" style="border: 4px double #ff0f4d;">
                             <h3 style="color: #35568c;"><b><?php echo $mega->name ?></b></h3>
+
                             <p>Idioma: <?php echo $mega->language_name ?></p>
+
                             <p><?php echo $mega->note ?></p>
-                            <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>" style="max-width: 200px;"> DESCARGAR</a>
-                            <a target="_blank" class="btn btn-secondary" href="<?php echo base_url('enlace-caido?msg='.urlencode('MEGA: '.$mega->name).'&url_id='.$mega->mega_id) ?>"> ENLACE CAIDO</a>
+                            <a target="_blank" class="btn btn-danger" href="<?php echo $mega->url ?>"
+                               style="max-width: 200px;"> DESCARGAR</a>
+                            <a target="_blank" class="btn btn-secondary"
+                               href="<?php echo base_url('enlace-caido?msg=' . urlencode('MEGA: ' . $mega->name) . '&url_id=' . $mega->mega_id) ?>">
+                                ENLACE CAIDO</a>
                         </div>
                     <?php }
                 }
@@ -220,7 +244,8 @@ box-shadow: 5px 9px 12px -4px rgba(0,0,0,0.75); color: #fff;">
 
 
 <?php
-if(isset($_SESSION['username'])){?>
+if (isset($_SESSION['username'])) {
+    ?>
     <!-- Modal -->
     <div class="modal fade" id="modal-calificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -254,7 +279,7 @@ if(isset($_SESSION['username'])){?>
             </div>
         </div>
     </div>
-<?php }?>
+<?php } ?>
 
 
 <hr>
@@ -363,6 +388,10 @@ if(isset($_SESSION['username'])){?>
             html = '<iframe src="https://stream.moe/embed2/' + fileID + '/" frameborder="0" scrolling="no" height="' + altura_video + '"style="overflow: hidden; width: 100%;" webkitAllowFullScreen="true" mozallowfullscreen="true" allowFullScreen="true"></iframe>';
         } else if (server === 'google drive') {
             html = '<iframe src="https://drive.google.com/file/d/' + fileID + '/preview" style="width: 70%;" height="' + altura_video + '"></iframe>';
+        } else if (server === 'rapidvideo') {
+            html = '<iframe src="https://www.rapidvideo.com/e/' + fileID + '" style="width: 70%;" height="' + altura_video + '" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" marginwidth=0 marginheight=0></iframe>';
+        } else if (server === 'nowvideo') {
+            html = '<iframe src="//www.nowvideo.sx/embed/?v=' + fileID + '" style="width: 70%;" height="' + altura_video + '" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" frameborder="0" marginwidth=0 marginheight=0></iframe>';
         }
 
         $('#video-content').html(html);

@@ -65,12 +65,12 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                             <div class="row">
                                 <div class="col-xs-3">
                                     <label for=""># episodio</label>
-                                    <input required name="episode" type="number" value="1" class="form-control">
+                                    <input id="number" required name="episode" type="number" value="1" class="form-control">
                                 </div>
 
                                 <div class="col-xs-9">
                                     <label><i class="icon-link-4 prefix"></i> File ID: </label>
-                                    <input required type="text" name="link" class="form-control"
+                                    <input id="file_id" required type="text" name="link" class="form-control"
                                            placeholder="id del archivo openload, stream moe, google drive">
                                 </div>
                             </div>
@@ -105,7 +105,9 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                                     <select class="form-control w-100" name="servidor" id="">
                                         <option value="stream.moe">Streammoe</option>
                                         <option value="openload">Openload</option>
+                                        <option value="rapidvideo">RapidVideo</option>
                                         <option value="google drive">Google Drive</option>
+                                        <option value="nowvideo">nowvideo</option>
                                     </select>
                                 </div>
                             </div>
@@ -201,6 +203,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                                     position: "bottom left",
                                 });
                             $('#episode_name').val("");
+                            $('#file_id').val("");
                             update();
                         } else {
                             alert(data);

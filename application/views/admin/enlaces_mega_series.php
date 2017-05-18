@@ -60,7 +60,7 @@ $token = password_hash("token", PASSWORD_DEFAULT);
                             <br>
 
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-xs-4">
                                     <select class="form-control w-100" name="idioma" id="">
                                         <option value="latino">latino</option>
                                         <option value="castellano">castellano</option>
