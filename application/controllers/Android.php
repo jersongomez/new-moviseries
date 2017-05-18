@@ -101,7 +101,7 @@ class Android extends CI_Controller
     }
 
 
-     function movies_category_android($category, $limit, $offset,$letra)
+     function movies_category_letra($category, $limit, $offset,$letra)
     {
         $movies = $this->Movie_model->get_movies_category_android_letra(urldecode($category), $limit, $offset,$letra);
         $mmovies = array();
