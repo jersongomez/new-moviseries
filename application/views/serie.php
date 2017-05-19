@@ -2,6 +2,13 @@
 <?php startblock('title') ?><?php echo $serie->serie_name ?> <?php endblock() ?>
 <?php startblock('meta') ?>
 <meta name="description" content="<?php echo $serie->key_words ?>">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ver y descargar <?php echo $serie->serie_name ?> HD MEGA LATINO" />
+<meta property="og:description" content="<?php echo $serie->short_description ?>" />
+<meta property="og:url" content="http://moviseries.xyz/series/<?php echo $serie->serie_id ?>" />
+<meta property="og:site_name" content="Moviseries" /> 
+
+<meta property="og:image" content="<?php echo $serie->cover ?>" /> 
 
 <?php endblock() ?>
 

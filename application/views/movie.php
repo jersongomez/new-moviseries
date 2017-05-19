@@ -2,8 +2,13 @@
 
 <?php startblock('title') ?>Pelicula <?php echo $movie->name ?> <?php endblock() ?>
 <?php startblock('meta') ?>
-<meta name="description" content="<?php echo $movie->name ?>">
-
+<meta name="description" content="<?php echo $movie->key_words ?>">
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ver y descargar <?php echo $movie->name ?> HD MEGA LATINO" />
+<meta property="og:description" content="<?php echo $movie->short_description ?>" />
+<meta property="og:url" content="http://moviseries.xyz/peliculas/<?php echo $movie->movie_id ?>" />
+<meta property="og:site_name" content="Moviseries" /> 
+<meta property="og:image" content="<?php echo $movie->cover ?>" /> 
 <?php endblock() ?>
 
 
